@@ -1,6 +1,7 @@
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import '../styles/globals.css'
 import { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains' })
@@ -36,6 +37,7 @@ export default function RootLayout({
         <div id="root">
           {children}
         </div>
+        <Analytics />
       </body>
     </html>
   )

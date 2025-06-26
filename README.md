@@ -35,6 +35,7 @@ A cutting-edge, responsive Next.js 14 website showcasing modern web development 
 - **Icons**: Lucide React
 - **Forms**: React Hook Form + Zod
 - **Fonts**: Inter (primary), JetBrains Mono (code)
+- **Analytics**: Vercel Analytics
 
 ## 📦 Installation
 
@@ -159,6 +160,45 @@ Modify animations in `globals.css`:
 - Code splitting
 - Lazy loading
 - SEO optimized
+- **Vercel Analytics** for performance monitoring
+
+## 📊 Analytics
+
+This project includes Vercel Analytics for tracking page views and performance metrics.
+
+### Setup Vercel Analytics
+
+The analytics are already configured in this project. When you deploy to Vercel:
+
+1. **Analytics are automatically enabled** - No additional setup required
+2. **View your analytics** in the Vercel dashboard under your project
+3. **Real-time data** - See page views, unique visitors, and top pages
+4. **Performance insights** - Monitor Core Web Vitals and loading times
+
+### Manual Installation (if needed)
+
+If you need to add analytics to a new project:
+
+```bash
+npm install @vercel/analytics
+```
+
+Then add to your layout:
+
+```tsx
+import { Analytics } from '@vercel/analytics/next'
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  )
+}
+```
 
 ## 🚀 Deployment
 
@@ -181,6 +221,11 @@ Modify animations in `globals.css`:
    - Build Command: `npm run build`
    - Output Directory: Leave empty (auto-detected)
    - Install Command: `npm install`
+
+4. **Analytics Setup**:
+   - Analytics are automatically enabled on Vercel
+   - View your data in the Vercel dashboard
+   - No additional configuration needed
 
 ### Other Platforms
 
@@ -228,3 +273,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Built with ❤️ by the HexTech Technologies team
+
+## 🚀 Quick Start Summary
+
+1. **Install**: `npm install`
+2. **Develop**: `npm run dev`
+3. **Build**: `npm run build`
+4. **Deploy**: Push to GitHub → Connect to Vercel → Auto-deploy
+5. **Analytics**: Automatically enabled on Vercel deployment
+
+**Live Site**: [http://localhost:3000](http://localhost:3000) (development) | Your Vercel URL (production)
