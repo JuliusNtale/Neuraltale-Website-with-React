@@ -163,22 +163,47 @@ Modify animations in `globals.css`:
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
+
+1. **Automatic Deployment** (Recommended):
+   - Push your code to GitHub
+   - Connect your repository to Vercel
+   - Vercel will automatically deploy on every push
+
+2. **Manual Deployment**:
+
+   ```bash
+   npm install -g vercel
+   vercel --prod
+   ```
+
+3. **Build Settings** (if needed in Vercel dashboard):
+   - Framework Preset: **Next.js**
+   - Build Command: `npm run build`
+   - Output Directory: Leave empty (auto-detected)
+   - Install Command: `npm install`
+
+### Other Platforms
+
+#### Netlify
+
 ```bash
 npm run build
-npx vercel --prod
+# Deploy the '.next' folder
 ```
 
-### Netlify
+#### Railway
+
 ```bash
 npm run build
-# Deploy the 'out' folder
+npm start
 ```
 
-### Docker
-```bash
-docker build -t hextech-website .
-docker run -p 3000:3000 hextech-website
-```
+### Environment Variables
+
+If you add environment variables, make sure to set them in your deployment platform:
+
+- `NEXT_PUBLIC_API_URL` (if needed)
+- Any other environment variables your app requires
 
 ## 🤝 Contributing
 
