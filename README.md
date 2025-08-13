@@ -202,7 +202,60 @@ export default function RootLayout({ children }) {
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### Cloudflare Pages ⚡ (Recommended for Static Sites)
+
+This project is configured for **static export** and works perfectly with **Cloudflare Pages**.
+
+#### Quick Setup for Cloudflare Pages:
+
+1. **Push your code to GitHub** (if not already done)
+
+2. **Connect to Cloudflare Pages**:
+   - Go to [Cloudflare Pages](https://pages.cloudflare.com/)
+   - Click "Create a project" → "Connect to Git"
+   - Select your repository: `NeuralTale-Technologies-Website`
+
+3. **Build Configuration**:
+   ```
+   Framework preset: Next.js (Static HTML Export)
+   Build command: npm run build
+   Build output directory: out
+   ```
+
+4. **Deploy Settings**:
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `out`
+   - **Deploy Command**: (leave empty - not needed for static sites)
+   - **Node.js Version**: 18 or later
+
+5. **Environment Variables** (if needed):
+   - No environment variables required for basic deployment
+   - Add any custom variables in the Cloudflare Pages dashboard if needed
+
+#### Manual Build for Cloudflare Pages:
+
+```bash
+# Install dependencies
+npm install
+
+# Build for static export
+npm run build
+
+# The 'out' directory contains your static files
+# Upload the contents of 'out' folder to Cloudflare Pages
+```
+
+#### Why Cloudflare Pages?
+- ⚡ **Lightning fast** global CDN
+- 🆓 **Free tier** with generous limits
+- 🔒 **Built-in security** and DDoS protection
+- 🌍 **Global edge locations** for optimal performance
+- 📊 **Analytics** and performance insights
+- 🚀 **Automatic deployments** from Git
+
+---
+
+### Vercel (Alternative Option)
 
 1. **Automatic Deployment** (Recommended):
    - Push your code to GitHub
@@ -233,7 +286,7 @@ export default function RootLayout({ children }) {
 
 ```bash
 npm run build
-# Deploy the '.next' folder
+# Deploy the 'out' folder
 ```
 
 #### Railway
