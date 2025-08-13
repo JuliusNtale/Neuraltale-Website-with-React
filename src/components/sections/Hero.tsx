@@ -181,7 +181,7 @@ export default function Hero() {
             <br />
             <span className="text-white">the Future with</span>
             <br />
-            <span className="gradient-text">HexTech</span>
+            <span className="gradient-text">NeuralTale</span>
           </motion.h1>
 
           {/* Subheading */}

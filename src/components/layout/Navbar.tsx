@@ -50,7 +50,7 @@ export default function Navbar() {
               <div className="absolute inset-0 w-8 h-8 bg-neon-blue/20 rounded-full blur-md" />
             </div>
             <span className="text-xl font-bold gradient-text">
-              HexTech
+              NeuralTale
             </span>
           </motion.div>
 

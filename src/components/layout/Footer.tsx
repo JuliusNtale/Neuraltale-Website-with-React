@@ -87,10 +87,10 @@ export default function Footer() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Stay Updated with <span className="gradient-text">HexTech</span>
+                Stay Updated with <span className="gradient-text">NeuralTale</span>
               </h3>
               <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-                Get the latest insights on technology trends, industry news, and HexTech updates delivered to your inbox.
+                Get the latest insights on technology trends, industry news, and NeuralTale updates delivered to your inbox.
               </p>
               
               <div className="flex flex-col sm:flex-row max-w-md mx-auto gap-4">
@@ -128,7 +128,7 @@ export default function Footer() {
                     <Hexagon className="w-10 h-10 text-neon-blue animate-pulse-neon" />
                     <div className="absolute inset-0 w-10 h-10 bg-neon-blue/20 rounded-full blur-md" />
                   </div>
-                  <span className="text-2xl font-bold gradient-text">HexTech</span>
+                  <span className="text-2xl font-bold gradient-text">NeuralTale</span>
                 </div>
                 
                 <p className="text-gray-300 leading-relaxed mb-6">
@@ -141,7 +141,7 @@ export default function Footer() {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3 text-gray-300">
                     <Mail className="w-5 h-5 text-neon-blue" />
-                    <span>hello@hextech.com</span>
+                    <span>hello@neuraltale.com</span>
                   </div>
                   <div className="flex items-center space-x-3 text-gray-300">
                     <Phone className="w-5 h-5 text-neon-blue" />
@@ -200,7 +200,7 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
               {/* Copyright */}
               <div className="text-gray-400 text-center md:text-left">
-                <p>&copy; 2024 HexTech Technologies. All rights reserved.</p>
+                <p>&copy; 2024 NeuralTale Technologies. All rights reserved.</p>
                 <p className="text-sm mt-1">
                   Built with ❤️ using Next.js, TypeScript & Tailwind CSS
                 </p>

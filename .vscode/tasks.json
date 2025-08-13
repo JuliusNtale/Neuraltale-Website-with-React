@@ -2,7 +2,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Build HexTech Website",
+			"label": "Build NeuralTale Website",
 			"type": "shell",
 			"command": "npm",
 			"args": [

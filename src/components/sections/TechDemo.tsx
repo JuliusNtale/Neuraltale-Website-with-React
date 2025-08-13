@@ -14,10 +14,10 @@ const demoTabs = [
     icon: Cpu,
     description: 'Interactive AI-powered code assistant',
     code: `// AI-Powered Code Assistant
-import { HexTechAI } from '@hextech/ai-core'
+import { NeuralTaleAI } from '@neuraltale/ai-core'
 
-const assistant = new HexTechAI({
-  model: 'hextech-gpt-4',
+const assistant = new NeuralTaleAI({
+  model: 'neuraltale-gpt-4',
   capabilities: ['code-generation', 'debugging', 'optimization']
 })
 
@@ -36,17 +36,17 @@ console.log('Generated component:', result.code)
     title: 'Cloud Infrastructure',
     icon: Globe,
     description: 'Scalable cloud deployment automation',
-    code: `# HexTech Cloud Infrastructure as Code
+    code: `# NeuralTale Cloud Infrastructure as Code
 terraform {
   required_providers {
-    hextech = {
-      source  = "hextech/cloud"
+    neuraltale = {
+      source  = "neuraltale/cloud"
       version = "~> 2.0"
     }
   }
 }
 
-resource "hextech_cluster" "production" {
+resource "neuraltale_cluster" "production" {
   name               = "production-cluster"
   region             = "us-west-2"
   auto_scaling       = true
@@ -73,11 +73,11 @@ resource "hextech_cluster" "production" {
     description: 'Advanced threat detection system',
     code: `#!/usr/bin/env python3
 """
-HexTech Advanced Threat Detection System
+NeuralTale Advanced Threat Detection System
 Real-time security monitoring and response
 """
 
-from hextech.security import ThreatDetector, SecurityAnalyzer
+from neuraltale.security import ThreatDetector, SecurityAnalyzer
 import asyncio
 
 class AdvancedSecuritySystem:
@@ -231,7 +231,7 @@ export default function TechDemo() {
                     <div className="w-3 h-3 rounded-full bg-green-500" />
                   </div>
                   <span className="text-gray-400 text-sm font-mono">
-                    hextech-demo.{activeTab.id === 'cloud' ? 'tf' : activeTab.id === 'security' ? 'py' : 'js'}
+                    neuraltale-demo.{activeTab.id === 'cloud' ? 'tf' : activeTab.id === 'security' ? 'py' : 'js'}
                   </span>
                 </div>
                 

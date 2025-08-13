@@ -50,7 +50,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // HexTech custom colors
+        // NeuralTale custom colors
         neon: {
           blue: "#00D4FF",
           purple: "#8B5FBF",

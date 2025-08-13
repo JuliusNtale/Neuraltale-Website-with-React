@@ -12,7 +12,7 @@ const testimonials: Testimonial[] = [
     name: 'Sarah Chen',
     position: 'CTO',
     company: 'TechVision Inc.',
-    content: 'HexTech transformed our entire infrastructure with their AI-powered solutions. The results exceeded our expectations, improving efficiency by 300% and reducing costs significantly.',
+    content: 'NeuralTale transformed our entire infrastructure with their AI-powered solutions. The results exceeded our expectations, improving efficiency by 300% and reducing costs significantly.',
     avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b631?w=150&h=150&fit=crop&crop=face',
     rating: 5
   },
@@ -21,7 +21,7 @@ const testimonials: Testimonial[] = [
     name: 'Marcus Rodriguez',
     position: 'Lead Developer',
     company: 'InnovateSoft',
-    content: 'Working with HexTech was a game-changer. Their cloud infrastructure solutions scaled our platform to handle millions of users seamlessly. Absolutely incredible team and technology.',
+    content: 'Working with NeuralTale was a game-changer. Their cloud infrastructure solutions scaled our platform to handle millions of users seamlessly. Absolutely incredible team and technology.',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
     rating: 5
   },
@@ -30,7 +30,7 @@ const testimonials: Testimonial[] = [
     name: 'Dr. Emily Watson',
     position: 'Research Director',
     company: 'BioTech Labs',
-    content: 'The cybersecurity solutions from HexTech protected our sensitive research data with military-grade encryption. Their proactive threat detection saved us from potential breaches.',
+    content: 'The cybersecurity solutions from NeuralTale protected our sensitive research data with military-grade encryption. Their proactive threat detection saved us from potential breaches.',
     avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face',
     rating: 5
   },
@@ -39,7 +39,7 @@ const testimonials: Testimonial[] = [
     name: 'Alex Thompson',
     position: 'Startup Founder',
     company: 'NextGen Robotics',
-    content: 'HexTech\'s IoT solutions helped us create smarter, more efficient robots. Their edge computing technology reduced latency by 90% and improved real-time decision making.',
+    content: 'NeuralTale\'s IoT solutions helped us create smarter, more efficient robots. Their edge computing technology reduced latency by 90% and improved real-time decision making.',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
     rating: 5
   },
@@ -48,7 +48,7 @@ const testimonials: Testimonial[] = [
     name: 'Lisa Park',
     position: 'VP of Engineering',
     company: 'DataFlow Systems',
-    content: 'The quantum computing consultation from HexTech opened new possibilities for our data processing algorithms. They\'re truly at the forefront of technological innovation.',
+    content: 'The quantum computing consultation from NeuralTale opened new possibilities for our data processing algorithms. They\'re truly at the forefront of technological innovation.',
     avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
     rating: 5
   }
@@ -156,7 +156,7 @@ export default function Testimonials() {
             <span className="gradient-text">What Our Clients Say</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Hear from industry leaders who have transformed their businesses with HexTech
+            Hear from industry leaders who have transformed their businesses with NeuralTale
           </p>
         </motion.div>
 

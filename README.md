@@ -1,4 +1,4 @@
-# HexTech Technologies Website
+# NeuralTale Technologies Website
 
 A cutting-edge, responsive Next.js 14 website showcasing modern web development with superior UI/UX design, particle animations, and interactive 3D elements.
 
@@ -42,7 +42,7 @@ A cutting-edge, responsive Next.js 14 website showcasing modern web development 
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd hextech-technologies-website
+cd neuraltale-technologies-website
 ```
 
 2. Install dependencies:
@@ -272,7 +272,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Built with ❤️ by the HexTech Technologies team
+Built with ❤️ by the NeuralTale Technologies team
 
 ## 🚀 Quick Start Summary
 

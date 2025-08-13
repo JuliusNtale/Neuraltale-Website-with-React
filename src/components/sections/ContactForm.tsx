@@ -53,7 +53,7 @@ export default function ContactForm() {
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'hello@hextech.com',
+      content: 'hello@neuraltale.com',
       description: 'Send us an email anytime!'
     },
     {
@@ -95,7 +95,7 @@ export default function ContactForm() {
             <span className="gradient-text">Get In Touch</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to transform your business? Let's discuss how HexTech can help you achieve your goals
+            Ready to transform your business? Let's discuss how NeuralTale can help you achieve your goals
           </p>
         </motion.div>
 

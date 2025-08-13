@@ -243,7 +243,7 @@ export default function StatsCounter() {
               Ready to join these numbers?
             </h3>
             <p className="text-gray-300 mb-6">
-              Join thousands of satisfied clients who have transformed their businesses with HexTech Technologies
+              Join thousands of satisfied clients who have transformed their businesses with NeuralTale Technologies
             </p>
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
