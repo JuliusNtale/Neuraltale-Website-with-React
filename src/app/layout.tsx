@@ -1,10 +1,6 @@
-import { Inter, JetBrains_Mono } from 'next/font/google'
 import '../styles/globals.css'
 import { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains' })
 
 export const metadata: Metadata = {
   title: 'NeuralTale Technologies - Innovating the Future',
@@ -22,8 +18,14 @@ export const metadata: Metadata = {
     title: 'NeuralTale Technologies',
     description: 'Innovating the Future with Advanced Technology',
   },
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
+}
+
+export function generateViewport() {
+  return {
+    width: 'device-width',
+    initialScale: 1,
+  }
 }
 
 export default function RootLayout({
@@ -33,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-inter bg-dark-bg text-white antialiased`}>
+      <body className="font-inter bg-dark-bg text-white antialiased">
         <div id="root">
           {children}
         </div>
