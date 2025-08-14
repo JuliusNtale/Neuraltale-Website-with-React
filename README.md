@@ -1,6 +1,22 @@
-# NeuralTale Technologies Website
+# NEURALTALE Corporate Website
 
-A cutting-edge, responsive Next.js 14 website showcasing modern web development with superior UI/UX design, particle animations, and interactive 3D elements.
+**Where Technology Solves**
+
+A professional corporate website for NEURALTALE, showcasing our equipment supply, custom software development, and IT solutions services.
+
+## 🏢 About NEURALTALE
+
+**Founded:** 2025  
+**Headquarters:** Dar es Salaam, Tanzania  
+**Founder & CEO:** Julius Peter Ntale  
+**Core Focus:** Equipment Supply • Software Development • IT Solutions  
+**Legal Structure:** Limited Liability Company (LLC)
+
+## 🎯 Our Mission
+To deliver intelligent software, reliable equipment, and expert services that solve problems, empower people, and accelerate progress.
+
+## 🔮 Our Vision
+To redefine how businesses and communities experience technology — building a future where every challenge meets its perfect solution.
 
 ## 🚀 Features
 
@@ -272,7 +288,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Built with ❤️ by the NeuralTale Technologies team
+Built with ❤️ by the NEURALTALE team
+
+**Contact:**
+📍 Dar es Salaam, Tanzania  
+🌐 www.neuraltale.com  
+✉ info@neuraltale.com  
+📞 +255 700 000 000
 
 ## 🚀 Quick Start Summary
 

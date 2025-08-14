@@ -2,11 +2,11 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx,js,jsx}',
   ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     container: {
       center: true,
@@ -50,17 +50,25 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // NeuralTale custom colors
+        // NEURALTALE corporate colors
         neon: {
-          blue: "#00D4FF",
+          blue: "#1A4E89", // Electric Blue (Accent)
           purple: "#8B5FBF",
           pink: "#FF006E",
           green: "#00F5A0",
         },
         dark: {
-          bg: "#0A0A0A",
-          card: "#111111",
-          border: "#1A1A1A",
+          bg: "#FFFFFF", // White background
+          card: "#F8F9FA",
+          border: "#E5E7EB",
+        },
+        corporate: {
+          primary: "#0A2342", // Deep Navy Blue
+          accent: "#1A4E89",  // Electric Blue
+          text: "#1F2937",    // Dark gray for text
+          muted: "#6B7280",   // Muted gray
+          light: "#F8F9FA",   // Light background
+          white: "#FFFFFF",
         }
       },
       borderRadius: {

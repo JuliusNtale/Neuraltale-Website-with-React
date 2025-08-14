@@ -37,6 +37,12 @@ export interface NavItem {
   title: string
   href: string
   description?: string
+  hasDropdown?: boolean
+  dropdownItems?: {
+    title: string
+    href: string
+    description?: string
+  }[]
 }
 
 export interface SocialLink {

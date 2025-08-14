@@ -53,25 +53,25 @@ export default function ContactForm() {
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'hello@neuraltale.com',
+      content: 'info@neuraltale.com',
       description: 'Send us an email anytime!'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      content: '+1 (555) 123-4567',
-      description: '24/7 support available'
+      content: '+255 700 000 000',
+      description: 'Business hours support'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      content: 'San Francisco, CA',
+      content: 'Dar es Salaam, Tanzania',
       description: 'Schedule a meeting'
     }
   ]
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-dark-bg to-gray-900 relative overflow-hidden">
+    <section id="contact" className="py-24 bg-gray-50 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-96 h-96 bg-neon-purple/5 rounded-full blur-3xl" />
@@ -94,8 +94,8 @@ export default function ContactForm() {
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="gradient-text">Get In Touch</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to transform your business? Let's discuss how NeuralTale can help you achieve your goals
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Ready to solve your technology challenges? Let's discuss how NEURALTALE can deliver the right solutions for your business.
           </p>
         </motion.div>
 
@@ -185,7 +185,7 @@ export default function ContactForm() {
             <div className="glass rounded-2xl p-8 border border-gray-700 relative overflow-hidden">
               {/* Animated Border */}
               <div className="absolute inset-0 rounded-2xl opacity-0 hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute inset-[1px] rounded-2xl bg-dark-bg" />
+                <div className="absolute inset-[1px] rounded-2xl bg-white shadow-lg" />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink animate-gradient-shift" />
               </div>
 
@@ -208,13 +208,13 @@ export default function ContactForm() {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   {/* Name Field */}
                   <div>
-                    <label className="block text-white font-medium mb-2">
+                    <label className="block text-gray-900 font-medium mb-2">
                       Name *
                     </label>
                     <motion.input
                       whileFocus={{ scale: 1.02 }}
                       {...register('name')}
-                      className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300"
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
                       placeholder="Your full name"
                     />
                     {errors.name && (

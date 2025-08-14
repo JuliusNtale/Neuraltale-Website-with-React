@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Link from 'next/link'
 import { 
-  Hexagon, 
   Mail, 
   Phone, 
   MapPin, 
@@ -13,40 +13,41 @@ import {
   Linkedin,
   Instagram
 } from 'lucide-react'
+import Logo from '@/components/ui/Logo'
 import type { SocialLink, NavItem } from '@/types'
 
 const footerLinks = {
   services: [
-    { title: 'Artificial Intelligence', href: '#ai' },
-    { title: 'Cloud Computing', href: '#cloud' },
-    { title: 'Cybersecurity', href: '#security' },
-    { title: 'Mobile Development', href: '#mobile' },
+    { title: 'Enterprise Solutions', href: '/services#enterprise' },
+    { title: 'Cloud Computing', href: '/services#infrastructure' },
+    { title: 'Software Development', href: '/services#development' },
+    { title: 'IT Consulting', href: '/services#consulting' },
   ],
   company: [
-    { title: 'About Us', href: '#about' },
-    { title: 'Our Team', href: '#team' },
-    { title: 'Careers', href: '#careers' },
-    { title: 'Blog', href: '#blog' },
+    { title: 'About Us', href: '/about' },
+    { title: 'Our Services', href: '/services' },
+    { title: 'Contact Us', href: '/contact' },
+    { title: 'Get Quote', href: '/services#quote' },
   ],
   resources: [
-    { title: 'Documentation', href: '#docs' },
-    { title: 'Case Studies', href: '#cases' },
-    { title: 'Whitepapers', href: '#papers' },
-    { title: 'Support', href: '#support' },
+    { title: 'Documentation', href: '/services' },
+    { title: 'Case Studies', href: '/about' },
+    { title: 'Technology Blog', href: '/about' },
+    { title: 'Support', href: '/contact' },
   ],
   legal: [
-    { title: 'Privacy Policy', href: '#privacy' },
-    { title: 'Terms of Service', href: '#terms' },
-    { title: 'Cookie Policy', href: '#cookies' },
-    { title: 'GDPR', href: '#gdpr' },
+    { title: 'Privacy Policy', href: '/privacy' },
+    { title: 'Terms of Service', href: '/terms' },
+    { title: 'Cookie Policy', href: '/cookies' },
+    { title: 'GDPR Compliance', href: '/gdpr' },
   ]
 }
 
 const socialLinks: SocialLink[] = [
-  { name: 'GitHub', href: '#github', icon: 'Github' },
-  { name: 'Twitter', href: '#twitter', icon: 'Twitter' },
-  { name: 'LinkedIn', href: '#linkedin', icon: 'Linkedin' },
-  { name: 'Instagram', href: '#instagram', icon: 'Instagram' },
+  { name: 'GitHub', href: 'https://github.com/neuraltaletechnologies', icon: 'Github' },
+  { name: 'Twitter', href: 'https://twitter.com/neuraltaletech', icon: 'Twitter' },
+  { name: 'LinkedIn', href: 'https://linkedin.com/company/neuraltale', icon: 'Linkedin' },
+  { name: 'Instagram', href: 'https://instagram.com/neuraltaletechnologiestz', icon: 'Instagram' },
 ]
 
 const iconMap = {
@@ -67,7 +68,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative bg-dark-bg border-t border-gray-800 overflow-hidden">
+    <footer className="relative bg-gray-900 border-t border-gray-700 overflow-hidden text-white">
       {/* Background Pattern */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-hex-pattern opacity-5" />
@@ -87,10 +88,10 @@ export default function Footer() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Stay Updated with <span className="gradient-text">NeuralTale</span>
+                Stay Updated with <span className="gradient-text">NEURALTALE</span>
               </h3>
               <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-                Get the latest insights on technology trends, industry news, and NeuralTale updates delivered to your inbox.
+                Get the latest insights on technology trends, industry news, and NEURALTALE updates delivered to your inbox.
               </p>
               
               <div className="flex flex-col sm:flex-row max-w-md mx-auto gap-4">
@@ -123,12 +124,8 @@ export default function Footer() {
                 transition={{ delay: 0.1 }}
                 className="lg:col-span-2"
               >
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="relative">
-                    <Hexagon className="w-10 h-10 text-neon-blue animate-pulse-neon" />
-                    <div className="absolute inset-0 w-10 h-10 bg-neon-blue/20 rounded-full blur-md" />
-                  </div>
-                  <span className="text-2xl font-bold gradient-text">NeuralTale</span>
+                <div className="mb-6">
+                  <Logo size="lg" showText={true} className="text-white" />
                 </div>
                 
                 <p className="text-gray-300 leading-relaxed mb-6">
@@ -141,15 +138,15 @@ export default function Footer() {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3 text-gray-300">
                     <Mail className="w-5 h-5 text-neon-blue" />
-                    <span>hello@neuraltale.com</span>
+                    <a href="mailto:info@neuraltale.com" className="hover:text-neon-blue transition-colors">info@neuraltale.com</a>
                   </div>
                   <div className="flex items-center space-x-3 text-gray-300">
                     <Phone className="w-5 h-5 text-neon-blue" />
-                    <span>+1 (555) 123-4567</span>
+                    <a href="tel:+255653520829" className="hover:text-neon-blue transition-colors">+255 653 520 829</a>
                   </div>
                   <div className="flex items-center space-x-3 text-gray-300">
                     <MapPin className="w-5 h-5 text-neon-blue" />
-                    <span>San Francisco, CA</span>
+                    <span>Dar es Salaam, Tanzania</span>
                   </div>
                 </div>
               </motion.div>
@@ -173,13 +170,12 @@ export default function Footer() {
                         animate={inView ? { opacity: 1, x: 0 } : {}}
                         transition={{ delay: 0.3 + categoryIndex * 0.1 + linkIndex * 0.05 }}
                       >
-                        <motion.a
+                        <Link
                           href={link.href}
-                          whileHover={{ x: 5 }}
-                          className="text-gray-400 hover:text-neon-blue transition-colors duration-300 block"
+                          className="text-gray-400 hover:text-neon-blue transition-all duration-300 block hover:translate-x-1 transform"
                         >
                           {link.title}
-                        </motion.a>
+                        </Link>
                       </motion.li>
                     ))}
                   </ul>
@@ -200,7 +196,7 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
               {/* Copyright */}
               <div className="text-gray-400 text-center md:text-left">
-                <p>&copy; 2024 NeuralTale Technologies. All rights reserved.</p>
+                <p>&copy; 2025 NEURALTALE. All rights reserved.</p>
                 <p className="text-sm mt-1">
                   Built with ❤️ using Next.js, TypeScript & Tailwind CSS
                 </p>
@@ -214,6 +210,8 @@ export default function Footer() {
                     <motion.a
                       key={social.name}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       initial={{ opacity: 0, scale: 0 }}
                       animate={inView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ delay: 0.7 + index * 0.1 }}

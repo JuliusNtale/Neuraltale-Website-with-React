@@ -6,13 +6,17 @@ const nextConfig = {
     unoptimized: true,
     domains: ['images.unsplash.com', 'source.unsplash.com'],
   },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.(glsl|vs|fs|vert|frag)$/,
-      use: ['raw-loader', 'glslify-loader'],
-    });
-    return config;
+  // Enable experimental optimizations
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['framer-motion', 'lucide-react', 'react-icons'],
   },
+  // Enable compression
+  compress: true,
+  // Enable React strict mode for better performance
+  reactStrictMode: true,
+  // Optimize fonts
+  optimizeFonts: true,
 };
 
 module.exports = nextConfig;

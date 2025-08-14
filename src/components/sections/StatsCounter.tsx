@@ -184,7 +184,7 @@ export default function StatsCounter() {
   })
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-900 to-dark-bg relative overflow-hidden">
+    <section className="py-24 bg-gray-900 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-blue/3 rounded-full blur-3xl" />
@@ -243,7 +243,7 @@ export default function StatsCounter() {
               Ready to join these numbers?
             </h3>
             <p className="text-gray-300 mb-6">
-              Join thousands of satisfied clients who have transformed their businesses with NeuralTale Technologies
+              Join businesses and communities who have transformed their operations with NEURALTALE
             </p>
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}

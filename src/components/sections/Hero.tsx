@@ -6,6 +6,8 @@ import { ChevronDown, Sparkles, Zap, Code } from 'lucide-react'
 import Particles from 'react-particles'
 import { loadSlim } from 'tsparticles-slim'
 import type { Container, Engine } from 'tsparticles-engine'
+import Link from 'next/link'
+import Logo from '@/components/ui/Logo'
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -37,12 +39,11 @@ export default function Hero() {
         value: 'transparent',
       },
     },
-    fpsLimit: 120,
+    fpsLimit: 60, // Reduced from 120 for better performance
     interactivity: {
       events: {
         onClick: {
-          enable: true,
-          mode: 'push',
+          enable: false, // Disabled for performance
         },
         onHover: {
           enable: true,
@@ -51,24 +52,21 @@ export default function Hero() {
         resize: true,
       },
       modes: {
-        push: {
-          quantity: 4,
-        },
         repulse: {
-          distance: 100,
-          duration: 0.4,
+          distance: 50, // Reduced distance
+          duration: 0.2, // Faster duration
         },
       },
     },
     particles: {
       color: {
-        value: ['#00D4FF', '#8B5FBF', '#FF006E', '#00F5A0'],
+        value: ['#00D4FF', '#8B5FBF'],
       },
       links: {
         color: '#00D4FF',
-        distance: 150,
+        distance: 120, // Reduced distance
         enable: true,
-        opacity: 0.3,
+        opacity: 0.2, // Reduced opacity
         width: 1,
       },
       move: {
@@ -78,31 +76,31 @@ export default function Hero() {
           default: 'bounce' as const,
         },
         random: false,
-        speed: 1,
+        speed: 0.5, // Reduced speed
         straight: false,
       },
       number: {
         density: {
           enable: true,
-          area: 800,
+          area: 1200, // Increased area for fewer particles
         },
-        value: 80,
+        value: 40, // Reduced from 80
       },
       opacity: {
-        value: 0.5,
+        value: 0.3, // Reduced opacity
       },
       shape: {
         type: 'circle',
       },
       size: {
-        value: { min: 1, max: 3 },
+        value: { min: 1, max: 2 }, // Smaller particles
       },
     },
     detectRetina: true,
   }
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Particles Background */}
       <div className="absolute inset-0 z-0">
         <Particles
@@ -114,7 +112,7 @@ export default function Hero() {
       </div>
 
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-bg/90 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/50 to-transparent z-10" />
       
       {/* Floating 3D Elements */}
       <div className="absolute inset-0 z-20">
@@ -170,6 +168,16 @@ export default function Hero() {
             ))}
           </div>
 
+          {/* Company Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 1 }}
+            className="mb-8"
+          >
+            <Logo size="xl" showText={false} className="justify-center" />
+          </motion.div>
+
           {/* Main Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -177,11 +185,9 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight"
           >
-            <span className="gradient-text">Innovating</span>
+            <span className="gradient-text">NEURALTALE</span>
             <br />
-            <span className="text-white">the Future with</span>
-            <br />
-            <span className="gradient-text">NeuralTale</span>
+            <span className="text-gray-900 text-3xl md:text-4xl lg:text-5xl font-light">Where Technology Solves</span>
           </motion.h1>
 
           {/* Subheading */}
@@ -189,10 +195,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 1 }}
-            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Cutting-edge technology solutions for AI, Cloud Computing, Cybersecurity, 
-            and beyond. Experience the future of innovation today.
+            Professional equipment supply, custom software development, and IT solutions. 
+            Delivering intelligent technology that solves problems, empowers people, and accelerates progress.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -211,13 +217,23 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-r from-neon-purple to-neon-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.button>
 
+            <Link href="/services">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 border-2 border-neon-blue text-neon-blue font-bold text-lg rounded-lg hover:bg-neon-blue hover:text-dark-bg transition-all duration-300 relative overflow-hidden group"
+              >
+                <span className="relative z-10">See Our Services</span>
+                <div className="absolute inset-0 bg-neon-blue transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+              </motion.button>
+            </Link>
+
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-neon-blue text-neon-blue font-bold text-lg rounded-lg hover:bg-neon-blue hover:text-dark-bg transition-all duration-300 relative overflow-hidden group"
+              className="px-8 py-4 border border-gray-300 text-gray-700 font-bold text-lg rounded-lg hover:bg-gray-100 transition-all duration-300"
             >
               <span className="relative z-10">Contact Us</span>
-              <div className="absolute inset-0 bg-neon-blue transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
             </motion.button>
           </motion.div>
 

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Link from 'next/link'
 import { 
   Brain, 
   Cloud, 
@@ -10,74 +11,59 @@ import {
   Database, 
   Cpu,
   Network,
-  Bot
+  Bot,
+  ArrowRight
 } from 'lucide-react'
 import type { Service } from '@/types'
 
 const services: Service[] = [
   {
     id: '1',
-    title: 'Artificial Intelligence',
-    description: 'Advanced AI solutions including machine learning, natural language processing, and computer vision to transform your business.',
-    icon: 'Brain',
-    features: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'NLP'],
+    title: 'Equipment Supply',
+    description: 'Networking devices, IoT technology, computers, and accessories from trusted global partners.',
+    icon: 'Network',
+    features: ['Networking Devices', 'IoT Technology', 'Computer Hardware', 'Tech Accessories'],
     color: 'blue'
   },
   {
     id: '2',
-    title: 'Cloud Computing',
-    description: 'Scalable cloud infrastructure and migration services to optimize your operations and reduce costs.',
-    icon: 'Cloud',
-    features: ['AWS/Azure/GCP', 'Migration', 'DevOps', 'Serverless'],
+    title: 'Custom Software',
+    description: 'Enterprise solutions, mobile apps, automation tools, and AI-powered systems tailored to your needs.',
+    icon: 'Brain',
+    features: ['Enterprise Solutions', 'Mobile Apps', 'Automation Tools', 'AI Systems'],
     color: 'purple'
   },
   {
     id: '3',
-    title: 'Cybersecurity',
-    description: 'Comprehensive security solutions to protect your digital assets and ensure compliance.',
+    title: 'Technical Services',
+    description: 'Setup, integration, cybersecurity implementation, and ongoing technical support.',
     icon: 'Shield',
-    features: ['Threat Detection', 'Compliance', 'Penetration Testing', 'Security Audits'],
+    features: ['System Setup', 'Integration', 'Cybersecurity', 'Ongoing Support'],
     color: 'pink'
   },
   {
     id: '4',
-    title: 'Mobile Development',
-    description: 'Native and cross-platform mobile applications with cutting-edge user experiences.',
-    icon: 'Smartphone',
-    features: ['iOS/Android', 'React Native', 'Flutter', 'PWA'],
+    title: 'IT Consulting',
+    description: 'Strategic technology planning and digital transformation guidance for your business.',
+    icon: 'Cpu',
+    features: ['Strategy Planning', 'Digital Transformation', 'Technology Assessment', 'Implementation'],
     color: 'green'
   },
   {
     id: '5',
-    title: 'Data Analytics',
-    description: 'Turn your data into actionable insights with advanced analytics and visualization.',
+    title: 'System Integration',
+    description: 'Seamless integration of hardware and software solutions for optimal performance.',
     icon: 'Database',
-    features: ['Big Data', 'Business Intelligence', 'Data Visualization', 'Predictive Analytics'],
+    features: ['Hardware Integration', 'Software Integration', 'Performance Optimization', 'Testing'],
     color: 'blue'
   },
   {
     id: '6',
-    title: 'IoT Solutions',
-    description: 'Connect and optimize your devices with intelligent IoT platforms and edge computing.',
-    icon: 'Network',
-    features: ['Edge Computing', 'Device Management', 'Real-time Analytics', 'Automation'],
-    color: 'purple'
-  },
-  {
-    id: '7',
-    title: 'Quantum Computing',
-    description: 'Next-generation computing solutions for complex problem-solving and optimization.',
-    icon: 'Cpu',
-    features: ['Quantum Algorithms', 'Optimization', 'Research', 'Simulation'],
-    color: 'pink'
-  },
-  {
-    id: '8',
-    title: 'Automation & Robotics',
-    description: 'Intelligent automation solutions to streamline processes and increase efficiency.',
+    title: 'Maintenance & Support',
+    description: 'Comprehensive maintenance services and 24/7 technical support for all your systems.',
     icon: 'Bot',
-    features: ['RPA', 'Process Automation', 'Robotics', 'Workflow Optimization'],
-    color: 'green'
+    features: ['24/7 Support', 'Preventive Maintenance', 'Remote Monitoring', 'Emergency Response'],
+    color: 'purple'
   }
 ]
 
@@ -94,28 +80,46 @@ const iconMap = {
 
 const colorClasses = {
   blue: {
-    gradient: 'from-neon-blue to-blue-400',
-    glow: 'neon-blue',
-    border: 'border-neon-blue/30',
-    text: 'text-neon-blue'
+    gradient: 'from-blue-500 to-blue-600',
+    glow: 'shadow-lg hover:shadow-blue-200',
+    border: 'border-blue-200',
+    text: 'text-blue-600'
   },
   purple: {
-    gradient: 'from-neon-purple to-purple-400',
-    glow: 'neon-purple',
-    border: 'border-neon-purple/30',
-    text: 'text-neon-purple'
+    gradient: 'from-purple-500 to-purple-600',
+    glow: 'shadow-lg hover:shadow-purple-200',
+    border: 'border-purple-200',
+    text: 'text-purple-600'
   },
   pink: {
-    gradient: 'from-neon-pink to-pink-400',
-    glow: 'neon-pink',
-    border: 'border-neon-pink/30',
-    text: 'text-neon-pink'
+    gradient: 'from-pink-500 to-pink-600',
+    glow: 'shadow-lg hover:shadow-pink-200',
+    border: 'border-pink-200',
+    text: 'text-pink-600'
   },
   green: {
-    gradient: 'from-neon-green to-green-400',
-    glow: 'shadow-[0_0_20px_rgba(0,245,160,0.3)]',
-    border: 'border-neon-green/30',
-    text: 'text-neon-green'
+    gradient: 'from-green-500 to-green-600',
+    glow: 'shadow-lg hover:shadow-green-200',
+    border: 'border-green-200',
+    text: 'text-green-600'
+  },
+  yellow: {
+    gradient: 'from-yellow-500 to-yellow-600',
+    glow: 'shadow-lg hover:shadow-yellow-200',
+    border: 'border-yellow-200',
+    text: 'text-yellow-600'
+  },
+  indigo: {
+    gradient: 'from-indigo-500 to-indigo-600',
+    glow: 'shadow-lg hover:shadow-indigo-200',
+    border: 'border-indigo-200',
+    text: 'text-indigo-600'
+  },
+  red: {
+    gradient: 'from-red-500 to-red-600',
+    glow: 'shadow-lg hover:shadow-red-200',
+    border: 'border-red-200',
+    text: 'text-red-600'
   }
 }
 
@@ -126,7 +130,7 @@ export default function ServicesGrid() {
   })
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-dark-bg to-gray-900">
+    <section id="services" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -138,7 +142,7 @@ export default function ServicesGrid() {
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="gradient-text">Our Services</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Cutting-edge technology solutions designed to propel your business into the future
           </p>
         </motion.div>
@@ -165,8 +169,8 @@ export default function ServicesGrid() {
                   rotateX: 5,
                 }}
                 className={`
-                  relative group glass rounded-2xl p-6 border ${colors.border}
-                  hover:${colors.glow} transition-all duration-500
+                  relative group bg-white rounded-2xl p-6 border ${colors.border}
+                  ${colors.glow} transition-all duration-500 shadow-lg
                   transform-gpu perspective-1000
                 `}
               >
@@ -190,11 +194,11 @@ export default function ServicesGrid() {
 
                 {/* Content */}
                 <div className="relative z-10 text-center">
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:${colors.text} transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:${colors.text} transition-colors">
                     {service.title}
                   </h3>
                   
-                  <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -206,7 +210,7 @@ export default function ServicesGrid() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={inView ? { opacity: 1, x: 0 } : {}}
                         transition={{ delay: index * 0.1 + featureIndex * 0.05 }}
-                        className="flex items-center justify-center text-xs text-gray-300"
+                        className="flex items-center justify-center text-xs text-gray-500"
                       >
                         <div className={`w-1 h-1 bg-gradient-to-r ${colors.gradient} rounded-full mr-2`} />
                         {feature}
@@ -268,19 +272,24 @@ export default function ServicesGrid() {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="text-center mt-16"
         >
-          <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink text-white font-bold text-lg rounded-lg shadow-2xl relative overflow-hidden group"
-          >
-            <span className="relative z-10">Explore All Services</span>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-neon-pink via-neon-purple to-neon-blue"
-              initial={{ x: '100%' }}
-              whileHover={{ x: '0%' }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.button>
+          <Link href="/services">
+            <motion.button
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-lg shadow-2xl relative overflow-hidden group"
+            >
+              <span className="relative z-10 flex items-center space-x-2">
+                <span>View All Services & Packages</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600"
+                initial={{ x: '100%' }}
+                whileHover={{ x: '0%' }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
     </section>
