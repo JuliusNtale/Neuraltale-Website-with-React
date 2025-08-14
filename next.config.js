@@ -2,21 +2,28 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
+  skipTrailingSlashRedirect: true,
+  distDir: 'out',
   images: {
     unoptimized: true,
-    domains: ['images.unsplash.com', 'source.unsplash.com'],
   },
-  // Enable experimental optimizations
+  // Disable problematic experimental features for deployment
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'lucide-react', 'react-icons'],
   },
   // Enable compression
   compress: true,
-  // Enable React strict mode for better performance
+  // Enable React strict mode
   reactStrictMode: true,
-  // Optimize fonts
-  optimizeFonts: true,
+  // Disable font optimization for static export
+  optimizeFonts: false,
+  // Performance optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  swcMinify: true,
+  poweredByHeader: false,
+  generateEtags: false,
 };
 
 module.exports = nextConfig;

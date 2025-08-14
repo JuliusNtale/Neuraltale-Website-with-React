@@ -1,1 +1,9 @@
-{  "framework": "nextjs"}
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": "out",
+  "installCommand": "npm ci",
+  "env": {
+    "NEXT_TELEMETRY_DISABLED": "1"
+  }
+}
