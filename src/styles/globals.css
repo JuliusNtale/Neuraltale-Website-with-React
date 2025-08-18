@@ -34,6 +34,10 @@ body {
   background: hsl(var(--background));
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  /* Performance optimizations */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 html {
@@ -61,8 +65,10 @@ html {
 /* Glass morphism effect */
 .glass {
   background: rgba(255, 255, 255, 0.02);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  will-change: transform;
 }
 
 /* Neumorphism effect */
@@ -102,10 +108,11 @@ html {
 .gradient-text {
   background: linear-gradient(45deg, #00D4FF, #8B5FBF, #FF006E);
   background-size: 200% 200%;
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 3s ease-in-out infinite;
+  will-change: background-position;
 }
 
 /* Animated border */
@@ -121,8 +128,10 @@ html {
   background: linear-gradient(45deg, #00D4FF, #8B5FBF, #FF006E, #00F5A0);
   border-radius: inherit;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  mask-composite: subtract;
   animation: gradient-shift 3s ease-in-out infinite;
+  will-change: background-position;
 }
 
 /* Particle background */

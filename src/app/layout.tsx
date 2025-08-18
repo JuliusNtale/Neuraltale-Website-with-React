@@ -1,32 +1,48 @@
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import '../styles/globals.css'
 import { Metadata } from 'next'
-// import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/react'
 import StructuredData from '@/components/SEO/StructuredData'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import Script from 'next/script'
 
 const inter = Inter({ 
   subsets: ['latin'], 
   variable: '--font-inter',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
+  preload: true,
 })
 const jetbrainsMono = JetBrains_Mono({ 
   subsets: ['latin'], 
   variable: '--font-jetbrains',
-  weight: ['400', '500', '600'],
+  weight: ['400', '500'],
   display: 'swap',
+  preload: false,
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://neuraltale.com'),
   title: {
-    default: 'Neuraltale - Where Technology Solves',
+    default: 'Neuraltale - IT Equipment Supplier & Technology Solutions Provider in Tanzania',
     template: '%s | Neuraltale'
   },
-  description: 'Professional equipment supply, custom software development, and IT solutions. Delivering intelligent technology that solves problems, empowers people, and accelerates progress.',
-  keywords: ['equipment supply', 'software development', 'IT solutions', 'technology', 'Tanzania', 'neuraltale', 'AI', 'cloud computing', 'cybersecurity'],
+  description: 'Leading IT equipment supplier in Tanzania specializing in TP-Link Omada, UniFi networks, M-Pesa integration, and custom software development. Professional Wi-Fi hotspot solutions with M-Pesa vouchers for businesses across Dar es Salaam.',
+  keywords: [
+    'IT equipment supplier Tanzania',
+    'TP-Link Omada setup Tanzania', 
+    'UniFi installation Dar es Salaam',
+    'Wi-Fi hotspot M-Pesa vouchers',
+    'M-Pesa integration developers',
+    'network infrastructure Tanzania',
+    'business WiFi solutions',
+    'hospitality technology Tanzania',
+    'SME IT support Tanzania',
+    'cybersecurity services Tanzania',
+    'custom software development Tanzania',
+    'enterprise networking Tanzania'
+  ],
   authors: [{ name: 'Neuraltale', url: 'https://neuraltale.com' }],
   creator: 'Neuraltale',
   publisher: 'Neuraltale',
@@ -48,7 +64,7 @@ export const metadata: Metadata = {
       {
         rel: 'mask-icon',
         url: '/logo.png',
-        color: '#2563eb',
+        color: '#1e40af',
       },
     ],
   },
@@ -57,21 +73,21 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    title: 'Neuraltale - Where Technology Solves',
-    description: 'Professional equipment supply, custom software development, and IT solutions from Tanzania. Delivering intelligent technology that solves problems, empowers people, and accelerates progress.',
+    title: 'Neuraltale - IT Equipment Supplier Tanzania',
+    description: 'Leading IT equipment supplier in Tanzania specializing in TP-Link Omada, UniFi networks, M-Pesa integration, and Wi-Fi hotspot solutions for businesses.',
     siteName: 'Neuraltale',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Neuraltale - Where Technology Solves',
-        type: 'image/png',
+        alt: 'Neuraltale - IT Equipment Supplier Tanzania',
+        type: 'image/jpeg',
       },
       {
         url: '/logo.png',
-        width: 512,
-        height: 512,
+        width: 300,
+        height: 100,
         alt: 'Neuraltale Logo',
         type: 'image/png',
       },
@@ -79,10 +95,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Neuraltale - Where Technology Solves',
-    description: 'Professional equipment supply, custom software development, and IT solutions from Tanzania.',
+    title: 'Neuraltale - IT Equipment Supplier Tanzania',
+    description: 'TP-Link Omada, UniFi networks, M-Pesa integration, and Wi-Fi hotspot solutions in Tanzania.',
     creator: '@neuraltale',
-    images: ['/twitter-image.png'],
+    images: ['/twitter-image.jpg'],
   },
   verification: {
     google: process.env.GOOGLE_VERIFICATION,
@@ -109,24 +125,74 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-        <meta name="theme-color" content="#2563eb" />
-        <meta name="msapplication-TileColor" content="#2563eb" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <meta name="msapplication-TileColor" content="#1e40af" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <link rel="canonical" href="https://neuraltale.com" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="mask-icon" href="/logo.png" color="#2563eb" />
+        <link rel="mask-icon" href="/logo.png" color="#1e40af" />
+        
+        {/* Performance hints */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-XXXXXXX');
+            `,
+          }}
+        />
+        
+        {/* Google Analytics 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="ga4-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX', {
+              page_title: document.title,
+              page_location: window.location.href,
+            });
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-inter bg-white text-gray-900 antialiased`}>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        
         <StructuredData />
         <Navbar />
         <div id="root">
           {children}
         </div>
         <Footer />
-        {/* <Analytics /> */}
+        <Analytics />
       </body>
     </html>
   )

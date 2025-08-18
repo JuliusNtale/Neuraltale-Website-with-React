@@ -138,7 +138,7 @@ export default function Footer() {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3 text-gray-300">
                     <Mail className="w-5 h-5 text-neon-blue" />
-                    <a href="mailto:info@neuraltale.com" className="hover:text-neon-blue transition-colors">info@neuraltale.com</a>
+                    <a href="mailto:helpdesk@neuraltale.com" className="hover:text-neon-blue transition-colors">helpdesk@neuraltale.com</a>
                   </div>
                   <div className="flex items-center space-x-3 text-gray-300">
                     <Phone className="w-5 h-5 text-neon-blue" />

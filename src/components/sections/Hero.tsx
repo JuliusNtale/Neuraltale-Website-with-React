@@ -1,116 +1,32 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown, Sparkles, Zap, Code } from 'lucide-react'
-import Particles from 'react-particles'
-import { loadSlim } from 'tsparticles-slim'
-import type { Container, Engine } from 'tsparticles-engine'
 import Link from 'next/link'
 import Logo from '@/components/ui/Logo'
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine)
-  }, [])
-
-  const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    // Particles loaded callback
-  }, [])
-
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
   }, [])
 
   const scrollToServices = () => {
     document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const particlesConfig = {
-    background: {
-      color: {
-        value: 'transparent',
-      },
-    },
-    fpsLimit: 60, // Reduced from 120 for better performance
-    interactivity: {
-      events: {
-        onClick: {
-          enable: false, // Disabled for performance
-        },
-        onHover: {
-          enable: true,
-          mode: 'repulse',
-        },
-        resize: true,
-      },
-      modes: {
-        repulse: {
-          distance: 50, // Reduced distance
-          duration: 0.2, // Faster duration
-        },
-      },
-    },
-    particles: {
-      color: {
-        value: ['#00D4FF', '#8B5FBF'],
-      },
-      links: {
-        color: '#00D4FF',
-        distance: 120, // Reduced distance
-        enable: true,
-        opacity: 0.2, // Reduced opacity
-        width: 1,
-      },
-      move: {
-        direction: 'none' as const,
-        enable: true,
-        outModes: {
-          default: 'bounce' as const,
-        },
-        random: false,
-        speed: 0.5, // Reduced speed
-        straight: false,
-      },
-      number: {
-        density: {
-          enable: true,
-          area: 1200, // Increased area for fewer particles
-        },
-        value: 40, // Reduced from 80
-      },
-      opacity: {
-        value: 0.3, // Reduced opacity
-      },
-      shape: {
-        type: 'circle',
-      },
-      size: {
-        value: { min: 1, max: 2 }, // Smaller particles
-      },
-    },
-    detectRetina: true,
-  }
-
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-      {/* Particles Background */}
-      <div className="absolute inset-0 z-0">
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          loaded={particlesLoaded}
-          options={particlesConfig}
-        />
-      </div>
-
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/50 to-transparent z-10" />
       
@@ -135,11 +51,9 @@ export default function Hero() {
               ease: 'easeInOut',
             }}
           >
-            <div className="w-16 h-16 border-2 border-neon-blue/30 rotate-45 animate-pulse-neon" 
-                 style={{ 
-                   background: `linear-gradient(45deg, transparent, ${i % 2 ? '#00D4FF20' : '#8B5FBF20'})`,
-                 }}
-            />
+            <div className={`w-16 h-16 border-2 border-neon-blue/30 rotate-45 animate-pulse-neon ${
+              i % 2 ? 'bg-gradient-to-br from-transparent to-neon-blue/10' : 'bg-gradient-to-br from-transparent to-neon-purple/10'
+            }`} />
           </motion.div>
         ))}
       </div>

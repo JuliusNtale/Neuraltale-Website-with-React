@@ -3,21 +3,29 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
 import { Send, CheckCircle, AlertCircle, Mail, Phone, MapPin } from 'lucide-react'
-import type { ContactFormData } from '@/types'
 
-const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  company: z.string().optional(),
-  subject: z.string().min(5, 'Subject must be at least 5 characters'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-})
+interface ContactFormData {
+  name: string
+  email: string
+  company?: string
+  subject: string
+  message: string
+}
+
+const validateEmail = (email: string) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
 
 export default function ContactForm() {
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: '',
+    email: '',
+    company: '',
+    subject: '',
+    message: '',
+  })
+  const [errors, setErrors] = useState<Partial<ContactFormData>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [ref, inView] = useInView({
@@ -25,25 +33,48 @@ export default function ContactForm() {
     threshold: 0.2
   })
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
-  })
+  const validateForm = (): boolean => {
+    const newErrors: Partial<ContactFormData> = {}
+    
+    if (!formData.name || formData.name.length < 2) {
+      newErrors.name = 'Name must be at least 2 characters'
+    }
+    if (!formData.email || !validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email address'
+    }
+    if (!formData.subject || formData.subject.length < 5) {
+      newErrors.subject = 'Subject must be at least 5 characters'
+    }
+    if (!formData.message || formData.message.length < 10) {
+      newErrors.message = 'Message must be at least 10 characters'
+    }
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
-  const onSubmit = async (data: ContactFormData) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+    if (errors[name as keyof ContactFormData]) {
+      setErrors(prev => ({ ...prev, [name]: undefined }))
+    }
+  }
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!validateForm()) return
+    
     setIsSubmitting(true)
     
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000))
     
-    console.log('Form data:', data)
+    console.log('Form data:', formData)
     setIsSubmitting(false)
     setIsSubmitted(true)
-    reset()
+    setFormData({ name: '', email: '', company: '', subject: '', message: '' })
     
     // Reset success message after 5 seconds
     setTimeout(() => setIsSubmitted(false), 5000)
@@ -53,13 +84,13 @@ export default function ContactForm() {
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'info@neuraltale.com',
+      content: 'helpdesk@neuraltale.com',
       description: 'Send us an email anytime!'
     },
     {
       icon: Phone,
       title: 'Call Us',
-      content: '+255 700 000 000',
+      content: '+255 653 520 829 (Tigo/Yas) | +255 746 520 819 (Vodacom)',
       description: 'Business hours support'
     },
     {
@@ -205,7 +236,7 @@ export default function ContactForm() {
                   </motion.div>
                 )}
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={onSubmit} className="space-y-6">
                   {/* Name Field */}
                   <div>
                     <label className="block text-gray-900 font-medium mb-2">
@@ -213,7 +244,9 @@ export default function ContactForm() {
                     </label>
                     <motion.input
                       whileFocus={{ scale: 1.02 }}
-                      {...register('name')}
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
                       placeholder="Your full name"
                     />
@@ -224,7 +257,7 @@ export default function ContactForm() {
                         className="mt-2 text-red-400 text-sm flex items-center space-x-1"
                       >
                         <AlertCircle className="w-4 h-4" />
-                        <span>{errors.name.message}</span>
+                        <span>{errors.name}</span>
                       </motion.p>
                     )}
                   </div>
@@ -237,8 +270,10 @@ export default function ContactForm() {
                       </label>
                       <motion.input
                         whileFocus={{ scale: 1.02 }}
-                        {...register('email')}
+                        name="email"
                         type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300"
                         placeholder="your@email.com"
                       />
@@ -249,7 +284,7 @@ export default function ContactForm() {
                           className="mt-2 text-red-400 text-sm flex items-center space-x-1"
                         >
                           <AlertCircle className="w-4 h-4" />
-                          <span>{errors.email.message}</span>
+                          <span>{errors.email}</span>
                         </motion.p>
                       )}
                     </div>
@@ -260,7 +295,9 @@ export default function ContactForm() {
                       </label>
                       <motion.input
                         whileFocus={{ scale: 1.02 }}
-                        {...register('company')}
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
                         className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300"
                         placeholder="Your company name"
                       />
@@ -274,7 +311,9 @@ export default function ContactForm() {
                     </label>
                     <motion.input
                       whileFocus={{ scale: 1.02 }}
-                      {...register('subject')}
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300"
                       placeholder="What can we help you with?"
                     />
@@ -285,7 +324,7 @@ export default function ContactForm() {
                         className="mt-2 text-red-400 text-sm flex items-center space-x-1"
                       >
                         <AlertCircle className="w-4 h-4" />
-                        <span>{errors.subject.message}</span>
+                        <span>{errors.subject}</span>
                       </motion.p>
                     )}
                   </div>
@@ -297,7 +336,9 @@ export default function ContactForm() {
                     </label>
                     <motion.textarea
                       whileFocus={{ scale: 1.02 }}
-                      {...register('message')}
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       rows={5}
                       className="w-full px-4 py-3 rounded-lg bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/20 transition-all duration-300 resize-none"
                       placeholder="Tell us about your project or requirements..."
@@ -309,7 +350,7 @@ export default function ContactForm() {
                         className="mt-2 text-red-400 text-sm flex items-center space-x-1"
                       >
                         <AlertCircle className="w-4 h-4" />
-                        <span>{errors.message.message}</span>
+                        <span>{errors.message}</span>
                       </motion.p>
                     )}
                   </div>

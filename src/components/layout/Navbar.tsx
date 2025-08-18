@@ -10,17 +10,32 @@ import type { NavItem } from '@/types'
 
 const navItems: NavItem[] = [
   { title: 'Home', href: '/' },
-  { title: 'About', href: '/about' },
+  { title: 'Solutions', href: '/solutions' },
   { 
     title: 'Services', 
     href: '/services',
     hasDropdown: true,
     dropdownItems: [
-      { title: 'Our Services', href: '/services', description: 'View all service packages' },
-      { title: 'Get Quote', href: '/services#quote', description: 'Request a custom quote' }
+      { title: 'Equipment Supply', href: '/services#equipment', description: 'Networking, Wi-Fi, IoT, Workstations' },
+      { title: 'Custom Software', href: '/services#software', description: 'Web/Mobile, AI-assisted Solutions' },
+      { title: 'Systems Integration', href: '/services#integration', description: 'Wi-Fi Hotspots, Payment Solutions' },
+      { title: 'Cyber & Support', href: '/services#cybersecurity', description: 'Security & SLA Support' }
     ]
   },
-  { title: 'Solutions', href: '/services' },
+  { title: 'Industries', href: '/industries' },
+  { title: 'Blog', href: '/blog' },
+  { title: 'Case Studies', href: '/case-studies' },
+  { 
+    title: 'Company', 
+    href: '/about',
+    hasDropdown: true,
+    dropdownItems: [
+      { title: 'About Us', href: '/about', description: 'Our story and mission' },
+      { title: 'Careers', href: '/careers', description: 'Join our team' },
+      { title: 'Press & Media', href: '/press', description: 'Media resources and press kit' },
+      { title: 'Support', href: '/support', description: 'Get help and resources' }
+    ]
+  },
   { title: 'Contact', href: '/contact' },
 ]
 
