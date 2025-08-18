@@ -17,9 +17,15 @@ const nextConfig = {
       'lucide-react', 
       'react-icons',
       'react-intersection-observer',
-      'react-hook-form'
+      'react-hook-form',
+      '@react-three/fiber',
+      '@react-three/drei',
+      'three',
+      'react-particles',
+      'tsparticles'
     ],
     optimizeCss: true,
+    webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
   },
   // Enable compression
   compress: true,
@@ -39,22 +45,71 @@ const nextConfig = {
   webpack: (config, { dev, isServer }) => {
     // Only run in production
     if (!dev && !isServer) {
+      // Enhanced code splitting
       config.optimization.splitChunks = {
         chunks: 'all',
+        maxSize: 244000,
         cacheGroups: {
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+          },
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
+            priority: -10,
             chunks: 'all',
+            maxSize: 244000,
+          },
+          react: {
+            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+            name: 'react',
+            chunks: 'all',
+            priority: 20,
+          },
+          threejs: {
+            test: /[\\/]node_modules[\\/](@react-three|three)[\\/]/,
+            name: 'threejs',
+            chunks: 'async',
+            priority: 15,
+          },
+          motion: {
+            test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
+            name: 'motion',
+            chunks: 'async',
+            priority: 10,
+          },
+          particles: {
+            test: /[\\/]node_modules[\\/](react-particles|tsparticles)[\\/]/,
+            name: 'particles',
+            chunks: 'async',
+            priority: 10,
           },
           common: {
             name: 'common',
             minChunks: 2,
             chunks: 'all',
             enforce: true,
+            priority: 5,
           },
         },
       };
+
+      // Tree shaking optimization
+      config.optimization.usedExports = true;
+      config.optimization.sideEffects = false;
+    }
+
+    // Bundle analyzer
+    if (process.env.ANALYZE === 'true') {
+      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          openAnalyzer: false,
+        })
+      );
     }
     return config;
   },

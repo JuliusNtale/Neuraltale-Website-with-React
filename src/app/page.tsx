@@ -2,23 +2,29 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Hero from '@/components/sections/Hero'
 import StructuredData from '@/components/SEO/StructuredData'
+import ResourceHints from '@/components/utils/ResourceHints'
 import { organizationSchema, localBusinessSchema, serviceSchemas } from '@/lib/seo'
 
-// Lazy load below-the-fold components
+// Lazy load below-the-fold components with optimized loading
 const About = dynamic(() => import('@/components/sections/About'), {
-  loading: () => <div className="min-h-[400px] bg-gray-50" />
+  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />,
+  ssr: false
 })
 const ServicesGrid = dynamic(() => import('@/components/sections/ServicesGrid'), {
-  loading: () => <div className="min-h-[600px] bg-white" />
+  loading: () => <div className="min-h-[600px] bg-white animate-pulse" />,
+  ssr: true // Keep this server-side for SEO
 })
 const StatsCounter = dynamic(() => import('@/components/sections/StatsCounter'), {
-  loading: () => <div className="min-h-[300px] bg-gray-50" />
+  loading: () => <div className="min-h-[300px] bg-gray-50 animate-pulse" />,
+  ssr: false
 })
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials'), {
-  loading: () => <div className="min-h-[500px] bg-white" />
+  loading: () => <div className="min-h-[500px] bg-white animate-pulse" />,
+  ssr: false
 })
 const ContactForm = dynamic(() => import('@/components/sections/ContactForm'), {
-  loading: () => <div className="min-h-[600px] bg-gray-50" />
+  loading: () => <div className="min-h-[600px] bg-gray-50 animate-pulse" />,
+  ssr: false
 })
 
 export const metadata: Metadata = {
@@ -90,6 +96,7 @@ const homePageSchema = [
 export default function Home() {
   return (
     <>
+      <ResourceHints />
       <StructuredData data={homePageSchema} />
       <main className="min-h-screen bg-white overflow-hidden">
         <Hero />

@@ -139,52 +139,60 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         
-        {/* Google Tag Manager */}
-        <Script
-          id="gtm-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-XXXXXXX');
-            `,
-          }}
-        />
+        {/* Google Tag Manager - Deferred loading */}
+        {process.env.NODE_ENV === 'production' && (
+          <Script
+            id="gtm-script"
+            strategy="lazyOnload"
+            dangerouslySetInnerHTML={{
+              __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-XXXXXXX');
+              `,
+            }}
+          />
+        )}
         
-        {/* Google Analytics 4 */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="ga4-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX', {
-              page_title: document.title,
-              page_location: window.location.href,
-            });
-            `,
-          }}
-        />
+        {/* Google Analytics 4 - Deferred loading */}
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+              strategy="lazyOnload"
+            />
+            <Script
+              id="ga4-script"
+              strategy="lazyOnload"
+              dangerouslySetInnerHTML={{
+                __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-XXXXXXXXXX', {
+                  page_title: document.title,
+                  page_location: window.location.href,
+                });
+                `,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-inter bg-white text-gray-900 antialiased`}>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
+        {/* Google Tag Manager (noscript) - Only in production */}
+        {process.env.NODE_ENV === 'production' && (
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+              height="0"
+              width="0"
+              className="hidden"
+            />
+          </noscript>
+        )}
         
         <StructuredData />
         <Navbar />
