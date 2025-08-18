@@ -9,6 +9,7 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "analyze": "ANALYZE=true npm run build",
+    "perf": "node scripts/analyze-performance.js",
     "postbuild": "node -e \"require('fs').writeFileSync('out/.nojekyll', '')\""
   },
   "dependencies": {
