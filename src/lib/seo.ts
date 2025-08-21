@@ -53,10 +53,24 @@ export const organizationSchema = {
   logo: {
     "@type": "ImageObject",
     url: "https://neuraltale.com/logo.png",
-    width: 300,
-    height: 100
+    width: 600,
+    height: 60,
+    contentUrl: "https://neuraltale.com/logo.png"
   },
-  image: "https://neuraltale.com/og-image.jpg",
+  image: [
+    {
+      "@type": "ImageObject",
+      url: "https://neuraltale.com/logo.png",
+      width: 600,
+      height: 60
+    },
+    {
+      "@type": "ImageObject", 
+      url: "https://neuraltale.com/og-image.jpg",
+      width: 1200,
+      height: 630
+    }
+  ],
   description: "Leading IT equipment supplier and technology solutions provider in Tanzania specializing in enterprise networking, M-Pesa integration, and custom software development.",
   telephone: "+255653520829",
   email: "helpdesk@neuraltale.com",
@@ -97,6 +111,35 @@ export const organizationSchema = {
     "https://linkedin.com/company/neuraltale",
     "https://instagram.com/neuraltale"
   ]
+}
+
+// Google Logo Schema - Specific for search results logo
+export const logoSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  url: "https://neuraltale.com",
+  logo: "https://neuraltale.com/logo.png"
+}
+
+// Website Schema with logo
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://neuraltale.com/#website",
+  url: "https://neuraltale.com",
+  name: "Neuraltale",
+  description: "Leading IT equipment supplier and technology solutions provider in Tanzania",
+  publisher: {
+    "@id": "https://neuraltale.com/#organization"
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://neuraltale.com/search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
 }
 
 export const localBusinessSchema = {

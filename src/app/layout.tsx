@@ -86,8 +86,8 @@ export const metadata: Metadata = {
       },
       {
         url: '/logo.png',
-        width: 300,
-        height: 100,
+        width: 600,
+        height: 60,
         alt: 'Neuraltale Logo',
         type: 'image/png',
       },
@@ -134,6 +134,10 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
         <link rel="mask-icon" href="/logo.png" color="#1e40af" />
+        
+        {/* Organization Logo for Google Search */}
+        <meta property="og:logo" content="https://neuraltale.com/logo.png" />
+        <meta name="logo" content="https://neuraltale.com/logo.png" />
         
         {/* Performance hints */}
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />

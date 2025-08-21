@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import Hero from '@/components/sections/Hero'
 import StructuredData from '@/components/SEO/StructuredData'
 import ResourceHints from '@/components/utils/ResourceHints'
-import { organizationSchema, localBusinessSchema, serviceSchemas } from '@/lib/seo'
+import { organizationSchema, localBusinessSchema, serviceSchemas, logoSchema, websiteSchema } from '@/lib/seo'
 
 // Lazy load below-the-fold components with optimized loading
 const About = dynamic(() => import('@/components/sections/About'), {
@@ -98,6 +98,8 @@ export default function Home() {
     <>
       <ResourceHints />
       <StructuredData data={homePageSchema} />
+      <StructuredData data={logoSchema} />
+      <StructuredData data={websiteSchema} />
       <main className="min-h-screen bg-white overflow-hidden">
         <Hero />
         <About />
