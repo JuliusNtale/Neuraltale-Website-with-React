@@ -116,105 +116,120 @@ const CookieConsent = () => {
 
   return (
     <>
-      {/* Cookie Banner */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-blue-600 shadow-2xl z-50 p-4 md:p-6">
-        <div className="container mx-auto max-w-6xl">
-          {/* Warning for disabled cookies */}
-          {!cookiesEnabled && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2">
-              <AlertTriangle className="text-red-600 flex-shrink-0" size={20} />
-              <p className="text-red-700 text-sm">
-                <strong>Cookies Disabled:</strong> Your browser has cookies disabled. 
-                Some features may not work properly. Please enable cookies for the best experience.
-              </p>
-            </div>
-          )}
-          
-          <div className="flex items-start gap-4">
-            <Cookie className="text-blue-600 mt-1 flex-shrink-0" size={24} />
-            
-            <div className="flex-1">
-              <h3 className="font-semibold text-gray-900 mb-2">
-                🍪 We use cookies to improve your experience
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">
-                We use cookies to analyze website traffic and optimize your experience. 
-                By accepting our use of cookies, your data will be aggregated with all other user data.
-              </p>
-              
-              <div className="flex flex-wrap gap-3">
-                <button
-                  onClick={acceptAll}
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                >
-                  Accept All
-                </button>
-                <button
-                  onClick={acceptEssential}
-                  className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
-                >
-                  Essential Only
-                </button>
-                <button
-                  onClick={() => setShowDetails(true)}
-                  className="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors"
-                >
-                  Customize
-                </button>
+      {/* Cookie Banner - Compact & Friendly */}
+      <div className="fixed bottom-4 right-4 max-w-sm bg-white rounded-xl shadow-lg border border-gray-200 p-4 z-50 animate-in slide-in-from-bottom-2 duration-300">
+        {/* Warning for disabled cookies - Compact */}
+        {!cookiesEnabled && (
+          <div className="mb-3 p-2 bg-orange-50 border border-orange-200 rounded-lg">
+            <p className="text-orange-700 text-xs flex items-center gap-1">
+              <AlertTriangle size={14} />
+              Cookies disabled in browser
+            </p>
+          </div>
+        )}
+        
+        <div className="space-y-3">
+          {/* Header */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                <Cookie className="text-blue-600" size={16} />
               </div>
+              <h3 className="font-medium text-gray-900 text-sm">
+                Cookie Settings
+              </h3>
             </div>
-            
             <button
               onClick={acceptEssential}
-              className="text-gray-400 hover:text-gray-600 flex-shrink-0"
-              aria-label="Close cookie banner and accept essential cookies only"
-              title="Close cookie banner"
+              className="text-gray-400 hover:text-gray-600 p-1"
+              aria-label="Close cookie notice"
+              title="Close (Essential only)"
             >
-              <X size={20} />
+              <X size={16} />
             </button>
+          </div>
+          
+          {/* Friendly Message */}
+          <p className="text-gray-600 text-xs leading-relaxed">
+            We use cookies to make your experience better. Essential cookies keep the site working, 
+            while analytics help us improve our services for you! 😊
+          </p>
+          
+          {/* Action Buttons */}
+          <div className="space-y-2">
+            <button
+              onClick={acceptAll}
+              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 px-3 rounded-lg text-sm font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-200 transform hover:scale-[1.02]"
+            >
+              ✨ Accept All
+            </button>
+            
+            <div className="flex gap-2">
+              <button
+                onClick={acceptEssential}
+                className="flex-1 bg-gray-100 text-gray-700 py-2 px-3 rounded-lg text-xs hover:bg-gray-200 transition-colors"
+              >
+                Essential Only
+              </button>
+              <button
+                onClick={() => setShowDetails(true)}
+                className="flex-1 border border-gray-300 text-gray-700 py-2 px-3 rounded-lg text-xs hover:bg-gray-50 transition-colors"
+              >
+                Customize
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Detailed Settings Modal */}
+      {/* Detailed Settings Modal - More Friendly */}
       {showDetails && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl max-w-md w-full max-h-[85vh] overflow-y-auto shadow-2xl">
             <div className="p-6">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Cookie Preferences</h2>
+              <div className="flex justify-between items-center mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                    <Cookie className="text-blue-600" size={20} />
+                  </div>
+                  <h2 className="text-xl font-semibold text-gray-900">Cookie Preferences</h2>
+                </div>
                 <button
                   onClick={() => setShowDetails(false)}
-                  className="text-gray-400 hover:text-gray-600"
-                  aria-label="Close cookie preferences modal"
-                  title="Close"
+                  className="text-gray-400 hover:text-gray-600 p-1 rounded-full hover:bg-gray-100"
+                  aria-label="Close cookie preferences"
                 >
-                  <X size={24} />
+                  <X size={20} />
                 </button>
               </div>
 
-              <div className="space-y-6">
-                {/* Essential Cookies */}
-                <div className="border rounded-lg p-4">
+              <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                Choose which cookies you're comfortable with. You can change these settings anytime! 🎯
+              </p>
+
+              <div className="space-y-4">
+                {/* Essential Cookies - More Friendly */}
+                <div className="bg-green-50 border border-green-200 rounded-xl p-4">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
-                      <Shield className="text-green-600" size={20} />
-                      <h3 className="font-semibold">Essential Cookies</h3>
+                      <Shield className="text-green-600" size={18} />
+                      <h3 className="font-medium text-green-800">Essential Cookies</h3>
                     </div>
-                    <span className="text-sm text-green-600 font-medium">Always Active</span>
+                    <div className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-medium">
+                      Required
+                    </div>
                   </div>
-                  <p className="text-sm text-gray-600">
-                    These cookies are necessary for the website to function and cannot be disabled. 
-                    They enable core functionality like page navigation and security features.
+                  <p className="text-sm text-green-700">
+                    Keep the website working smoothly - like remembering your preferences and keeping things secure! ✨
                   </p>
                 </div>
 
-                {/* Analytics Cookies */}
-                <div className="border rounded-lg p-4">
+                {/* Analytics Cookies - More Friendly */}
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
-                      <BarChart3 className="text-blue-600" size={20} />
-                      <h3 className="font-semibold">Analytics Cookies</h3>
+                      <BarChart3 className="text-blue-600" size={18} />
+                      <h3 className="font-medium text-blue-800">Analytics Cookies</h3>
                     </div>
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input
@@ -225,21 +240,20 @@ const CookieConsent = () => {
                         aria-label="Enable analytics cookies"
                         title="Toggle analytics cookies"
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:shadow-sm after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-500"></div>
                     </label>
                   </div>
-                  <p className="text-sm text-gray-600">
-                    Help us understand how visitors interact with our website by collecting anonymous information. 
-                    Uses Google Analytics to improve our services.
+                  <p className="text-sm text-blue-700">
+                    Help us understand what you like so we can make the website better for everyone! 📊
                   </p>
                 </div>
 
-                {/* Marketing Cookies */}
-                <div className="border rounded-lg p-4">
+                {/* Marketing Cookies - More Friendly */}
+                <div className="bg-purple-50 border border-purple-200 rounded-xl p-4">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
-                      <Target className="text-purple-600" size={20} />
-                      <h3 className="font-semibold">Marketing Cookies</h3>
+                      <Target className="text-purple-600" size={18} />
+                      <h3 className="font-medium text-purple-800">Marketing Cookies</h3>
                     </div>
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input
@@ -250,21 +264,20 @@ const CookieConsent = () => {
                         aria-label="Enable marketing cookies"
                         title="Toggle marketing cookies"
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:shadow-sm after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-purple-500"></div>
                     </label>
                   </div>
-                  <p className="text-sm text-gray-600">
-                    Allow us to show you relevant ads and measure advertising effectiveness. 
-                    Currently not used on this website.
+                  <p className="text-sm text-purple-700">
+                    Show you relevant content and services that might interest you! 🎯
                   </p>
                 </div>
 
-                {/* Functional Cookies */}
-                <div className="border rounded-lg p-4">
+                {/* Functional Cookies - More Friendly */}
+                <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
-                      <Cookie className="text-orange-600" size={20} />
-                      <h3 className="font-semibold">Functional Cookies</h3>
+                      <Cookie className="text-orange-600" size={18} />
+                      <h3 className="font-medium text-orange-800">Functional Cookies</h3>
                     </div>
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input
@@ -275,30 +288,34 @@ const CookieConsent = () => {
                         aria-label="Enable functional cookies"
                         title="Toggle functional cookies"
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                      <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-orange-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:shadow-sm after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-orange-500"></div>
                     </label>
                   </div>
-                  <p className="text-sm text-gray-600">
-                    Remember your preferences and settings to provide a more personalized experience. 
-                    Includes theme preferences and language settings.
+                  <p className="text-sm text-orange-700">
+                    Remember your choices and make features work better for you! ⚙️
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 mt-8">
+              {/* Action Buttons - More Friendly */}
+              <div className="flex gap-3 mt-6">
                 <button
                   onClick={handleCustomConsent}
-                  className="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-4 rounded-xl font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
                 >
-                  Save Preferences
+                  Save My Choices ✨
                 </button>
                 <button
                   onClick={acceptAll}
-                  className="flex-1 bg-gray-200 text-gray-800 py-3 rounded-lg hover:bg-gray-300 transition-colors"
+                  className="px-4 py-3 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors font-medium"
                 >
                   Accept All
                 </button>
               </div>
+              
+              <p className="text-xs text-gray-500 text-center mt-4">
+                You can change these settings anytime in your browser! 🔄
+              </p>
             </div>
           </div>
         </div>

@@ -17,12 +17,7 @@ const nextConfig = {
       'lucide-react', 
       'react-icons',
       'react-intersection-observer',
-      'react-hook-form',
-      '@react-three/fiber',
-      '@react-three/drei',
-      'three',
-      'react-particles',
-      'tsparticles'
+      'react-hook-form'
     ],
     optimizeCss: true,
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
@@ -68,21 +63,9 @@ const nextConfig = {
             chunks: 'all',
             priority: 20,
           },
-          threejs: {
-            test: /[\\/]node_modules[\\/](@react-three|three)[\\/]/,
-            name: 'threejs',
-            chunks: 'async',
-            priority: 15,
-          },
           motion: {
             test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
             name: 'motion',
-            chunks: 'async',
-            priority: 10,
-          },
-          particles: {
-            test: /[\\/]node_modules[\\/](react-particles|tsparticles)[\\/]/,
-            name: 'particles',
             chunks: 'async',
             priority: 10,
           },

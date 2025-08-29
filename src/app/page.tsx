@@ -1,29 +1,38 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import Hero from '@/components/sections/Hero'
+import HeroOptimized from '@/components/sections/HeroOptimized'
 import StructuredData from '@/components/SEO/StructuredData'
 import ResourceHints from '@/components/utils/ResourceHints'
 import { organizationSchema, localBusinessSchema, serviceSchemas, logoSchema, websiteSchema } from '@/lib/seo'
 
-// Lazy load below-the-fold components with optimized loading
+// Critical above-the-fold components - load immediately
+// Below-the-fold components - lazy load for better performance
 const About = dynamic(() => import('@/components/sections/About'), {
-  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />,
+  loading: () => <div className="min-h-[400px] bg-gray-50 flex items-center justify-center">
+    <div className="text-gray-400">Loading About Section...</div>
+  </div>,
   ssr: false
 })
+
 const ServicesGrid = dynamic(() => import('@/components/sections/ServicesGrid'), {
-  loading: () => <div className="min-h-[600px] bg-white animate-pulse" />,
-  ssr: true // Keep this server-side for SEO
+  loading: () => <div className="min-h-[600px] bg-white flex items-center justify-center">
+    <div className="text-gray-400">Loading Services...</div>
+  </div>,
+  ssr: true // Keep for SEO but optimize
 })
+
 const StatsCounter = dynamic(() => import('@/components/sections/StatsCounter'), {
-  loading: () => <div className="min-h-[300px] bg-gray-50 animate-pulse" />,
+  loading: () => <div className="min-h-[300px] bg-gray-50" />,
   ssr: false
 })
+
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials'), {
-  loading: () => <div className="min-h-[500px] bg-white animate-pulse" />,
+  loading: () => <div className="min-h-[500px] bg-white" />,
   ssr: false
 })
+
 const ContactForm = dynamic(() => import('@/components/sections/ContactForm'), {
-  loading: () => <div className="min-h-[600px] bg-gray-50 animate-pulse" />,
+  loading: () => <div className="min-h-[600px] bg-gray-50" />,
   ssr: false
 })
 
@@ -101,7 +110,7 @@ export default function Home() {
       <StructuredData data={logoSchema} />
       <StructuredData data={websiteSchema} />
       <main className="min-h-screen bg-white overflow-hidden">
-        <Hero />
+        <HeroOptimized />
         <About />
         <ServicesGrid />
         <StatsCounter />
