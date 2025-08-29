@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/react'
 import StructuredData from '@/components/SEO/StructuredData'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import CookieConsent from '@/components/ui/CookieConsent'
 import Script from 'next/script'
 
 const inter = Inter({ 
@@ -154,35 +155,10 @@ export default function RootLayout({
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-XXXXXXX');
+              })(window,document,'script','dataLayer','GTM-5S5TH6VB');
               `,
             }}
           />
-        )}
-        
-        {/* Google Analytics 4 - Deferred loading */}
-        {process.env.NODE_ENV === 'production' && (
-          <>
-            <Script
-              src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-              strategy="lazyOnload"
-            />
-            <Script
-              id="ga4-script"
-              strategy="lazyOnload"
-              dangerouslySetInnerHTML={{
-                __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-XXXXXXXXXX', {
-                  page_title: document.title,
-                  page_location: window.location.href,
-                });
-                `,
-              }}
-            />
-          </>
         )}
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-inter bg-white text-gray-900 antialiased`}>
@@ -190,7 +166,7 @@ export default function RootLayout({
         {process.env.NODE_ENV === 'production' && (
           <noscript>
             <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+              src="https://www.googletagmanager.com/ns.html?id=GTM-5S5TH6VB"
               height="0"
               width="0"
               className="hidden"
@@ -204,6 +180,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <CookieConsent />
         <Analytics />
       </body>
     </html>
