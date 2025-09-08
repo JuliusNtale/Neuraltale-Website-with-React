@@ -10,7 +10,7 @@
     "type-check": "tsc --noEmit",
     "analyze": "ANALYZE=true npm run build",
     "perf": "node scripts/analyze-performance.js",
-    "postbuild": "node -e \"require('fs').writeFileSync('out/.nojekyll', '')\""
+    "postbuild": "node -e \"if (require('fs').existsSync('out')) { require('fs').writeFileSync('out/.nojekyll', ''); console.log('Created .nojekyll for static export'); } else { console.log('Skipping .nojekyll - not a static export'); }\""
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
