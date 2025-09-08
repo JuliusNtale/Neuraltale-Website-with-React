@@ -19,13 +19,33 @@ const BlogList = () => {
   const [searchQuery, setSearchQuery] = useState('')
 
   const categories = [
-    { id: 'all', name: 'All Posts', count: 3 },
+    { id: 'all', name: 'All Posts', count: 4 },
     { id: 'networking', name: 'Networking', count: 2 },
     { id: 'mpesa', name: 'M-Pesa Integration', count: 1 },
-    { id: 'guides', name: 'Setup Guides', count: 3 }
+    { id: 'guides', name: 'Setup Guides', count: 4 },
+    { id: 'domains', name: 'Domain & Web', count: 1 }
   ]
 
   const blogPosts = [
+    {
+      id: 4,
+      slug: 'domain-types-guide-tanzania',
+      title: 'Complete Guide to Domain Types in Tanzania: .com, .co.tz, .org - Which Should You Choose?',
+      excerpt: 'Confused about domain extensions? This comprehensive guide explains all domain types (.com, .co.tz, .org, .net) and helps Tanzanian businesses choose the perfect domain for their needs.',
+      content: `Complete guide to choosing the right domain extension for your Tanzanian business. Learn the differences between .com, .co.tz, .org, and more with practical advice and cost comparisons.`,
+      author: 'Julius Ntale',
+      publishDate: '2025-09-08',
+      readTime: '12 min read',
+      category: 'guides',
+      tags: ['Domain Registration', 'Business Guide', 'Website Setup', '.co.tz', 'Tanzania'],
+      featured: true,
+      image: '/blog/domain-types-guide.jpg',
+      seo: {
+        title: 'Complete Guide to Domain Types in Tanzania: .com, .co.tz, .org - Which Should You Choose?',
+        description: 'Expert guide on choosing the right domain extension for your Tanzanian business. Compare .com, .co.tz, .org and make the best decision.',
+        keywords: ['domain types Tanzania', '.co.tz domain registration', '.com vs .co.tz Tanzania', 'domain extension guide Tanzania']
+      }
+    },
     {
       id: 1,
       slug: 'captive-portal-mpesa-vouchers-guide',
