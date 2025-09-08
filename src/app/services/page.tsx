@@ -1,4 +1,4 @@
-import CorporateServicesPage from '@/components/sections/CorporateServicesClean'
+import CorporateServicesPage from '@/components/sections/CorporateServices'
 
 export default function Services() {
   return (

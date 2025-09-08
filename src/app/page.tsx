@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import HeroOptimized from '@/components/sections/HeroOptimized'
+import Hero from '@/components/sections/Hero'
 import StructuredData from '@/components/SEO/StructuredData'
 import ResourceHints from '@/components/utils/ResourceHints'
 import { organizationSchema, localBusinessSchema, serviceSchemas, logoSchema, websiteSchema } from '@/lib/seo'
@@ -110,7 +110,7 @@ export default function Home() {
       <StructuredData data={logoSchema} />
       <StructuredData data={websiteSchema} />
       <main className="min-h-screen bg-white overflow-hidden">
-        <HeroOptimized />
+        <Hero />
         <About />
         <ServicesGrid />
         <StatsCounter />
