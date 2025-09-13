@@ -43,6 +43,14 @@ const services: Service[] = [
   },
   {
     id: '4',
+    title: 'Security Services',
+    description: 'Physical security solutions including CCTV surveillance, access control, automated gates, and perimeter security.',
+    icon: 'Shield',
+    features: ['CCTV Systems', 'Access Control', 'Automated Gates', 'Perimeter Security'],
+    color: 'purple'
+  },
+  {
+    id: '5',
     title: 'IT Consulting',
     description: 'Strategic technology planning and digital transformation guidance for your business.',
     icon: 'Cpu',
@@ -50,7 +58,7 @@ const services: Service[] = [
     color: 'green'
   },
   {
-    id: '5',
+    id: '6',
     title: 'System Integration',
     description: 'Seamless integration of hardware and software solutions for optimal performance.',
     icon: 'Database',
@@ -58,7 +66,7 @@ const services: Service[] = [
     color: 'blue'
   },
   {
-    id: '6',
+    id: '7',
     title: 'Maintenance & Support',
     description: 'Comprehensive maintenance services and 24/7 technical support for all your systems.',
     icon: 'Bot',

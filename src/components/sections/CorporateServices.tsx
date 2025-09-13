@@ -127,6 +127,26 @@ const CorporateServicesPage = () => {
       bestFor: 'Offices, manufacturing facilities, educational institutions'
     },
     {
+      category: 'security',
+      title: 'Physical Security Services',
+      subtitle: 'Comprehensive security solutions for homes and businesses',
+      icon: FaShieldAlt,
+      description: 'Complete physical security services including CCTV surveillance, access control systems, perimeter security, and automated gate solutions.',
+      features: [
+        'CCTV camera installation & monitoring',
+        'IP surveillance systems with remote access',
+        'Automatic & remote gate control systems',
+        'Wire fence & perimeter security installation',
+        'Access control systems (biometric, card readers)',
+        'Motion detection & alarm systems',
+        'Security system integration & automation',
+        '24/7 monitoring & maintenance support'
+      ],
+      timeline: '1-4 weeks',
+      pricing: 'Starting from $2,500 for basic systems',
+      bestFor: 'Residential homes, office buildings, industrial facilities, retail stores'
+    },
+    {
       category: 'support',
       title: 'Managed IT Services',
       subtitle: '24/7 IT support and system management',
@@ -155,6 +175,7 @@ const CorporateServicesPage = () => {
     { id: 'development', name: 'Development', icon: FaCode },
     { id: 'consulting', name: 'Consulting', icon: FaLightbulb },
     { id: 'equipment', name: 'Equipment Supply', icon: FaIndustry },
+    { id: 'security', name: 'Security Services', icon: FaShieldAlt },
     { id: 'support', name: 'Managed Services', icon: FaBusinessTime }
   ]
 

@@ -19,6 +19,7 @@ const navItems: NavItem[] = [
       { title: 'Equipment Supply', href: '/services#equipment', description: 'Networking, Wi-Fi, IoT, Workstations' },
       { title: 'Custom Software', href: '/services#software', description: 'Web/Mobile, AI-assisted Solutions' },
       { title: 'Systems Integration', href: '/services#integration', description: 'Wi-Fi Hotspots, Payment Solutions' },
+      { title: 'Security Services', href: '/services#security', description: 'CCTV, Gates, Fencing, Access Control' },
       { title: 'Cyber & Support', href: '/services#cybersecurity', description: 'Security & SLA Support' }
     ]
   },
@@ -154,13 +155,15 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:block px-6 py-2 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold rounded-lg neon-blue transition-all duration-300 hover:shadow-lg"
-          >
-            Get Started
-          </motion.button>
+          <Link href="/services">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="hidden md:block px-6 py-2 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold rounded-lg neon-blue transition-all duration-300 hover:shadow-lg"
+            >
+              Get Started
+            </motion.button>
+          </Link>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -255,13 +258,15 @@ export default function Navbar() {
                   </motion.div>
                 )
               })}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
-              >
-                Get Started
-              </motion.button>
+              <Link href="/services">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+                >
+                  Get Started
+                </motion.button>
+              </Link>
             </div>
           </motion.div>
         )}
