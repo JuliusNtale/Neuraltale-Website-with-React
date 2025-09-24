@@ -7,6 +7,7 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'
   showText?: boolean
   className?: string
+  layout?: 'horizontal' | 'vertical'
 }
 
 const sizeClasses = {
@@ -23,13 +24,13 @@ const textSizeClasses = {
   xl: 'text-3xl'
 }
 
-export default function Logo({ size = 'md', showText = true, className = '' }: LogoProps) {
+export default function Logo({ size = 'md', showText = true, className = '', layout = 'horizontal' }: LogoProps) {
   const logoSize = sizeClasses[size]
   
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      className={`flex items-center space-x-2 ${className}`}
+      className={`flex ${layout === 'vertical' ? 'flex-col items-center space-y-2' : 'items-center space-x-2'} ${className}`}
     >
       {/* Logo Image */}
       <div className="relative">

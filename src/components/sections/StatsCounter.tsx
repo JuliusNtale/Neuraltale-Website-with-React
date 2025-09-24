@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import CountUp from 'react-countup'
@@ -245,19 +246,21 @@ export default function StatsCounter() {
             <p className="text-gray-300 mb-6">
               Join businesses and communities who have transformed their operations with NEURALTALE
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold text-lg rounded-lg shadow-2xl relative overflow-hidden group"
-            >
-              <span className="relative z-10">Start Your Journey</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-neon-purple to-neon-pink"
-                initial={{ x: '100%' }}
-                whileHover={{ x: '0%' }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.button>
+            <Link href="/services">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold text-lg rounded-lg shadow-2xl relative overflow-hidden group"
+              >
+                <span className="relative z-10">Start Your Journey</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-neon-purple to-neon-pink"
+                  initial={{ x: '100%' }}
+                  whileHover={{ x: '0%' }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
 

@@ -40,7 +40,7 @@ export default function Hero() {
         <div className="space-y-8">
           {/* Logo */}
           <div className="flex justify-center mb-8">
-            <Logo className="w-16 h-16" />
+            <Logo size="lg" showText={true} layout="vertical" />
           </div>
 
           {/* Main Heading - No animation initially for faster LCP */}
