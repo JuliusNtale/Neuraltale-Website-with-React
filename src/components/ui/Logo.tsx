@@ -42,12 +42,6 @@ export default function Logo({ size = 'md', showText = true, className = '', lay
           className="object-contain"
           priority={true}
         />
-        
-        {/* Glow effect */}
-        <div 
-          className="absolute inset-0 bg-blue-500/20 rounded-full blur-md"
-          style={{ width: logoSize.width, height: logoSize.height }}
-        />
       </div>
       
       {/* Company name */}
