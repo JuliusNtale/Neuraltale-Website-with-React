@@ -36,6 +36,11 @@ const ContactForm = dynamic(() => import('@/components/sections/ContactForm'), {
   ssr: false
 })
 
+const LocationMap = dynamic(() => import('@/components/sections/LocationMap'), {
+  loading: () => <div className="min-h-[500px] bg-gray-50" />,
+  ssr: false
+})
+
 export const metadata: Metadata = {
   title: 'IT Equipment Supplier Dar es Salaam | TP-Link Omada Setup Tanzania | Neuraltale',
   description: 'Leading IT equipment supplier in Dar es Salaam specializing in TP-Link Omada setup, UniFi networks, Wi-Fi hotspot with M-Pesa vouchers, and M-Pesa integration developers. Professional network infrastructure for SMEs, hotels, schools, and retail businesses across Tanzania.',
@@ -115,7 +120,9 @@ export default function Home() {
         <ServicesGrid />
         <StatsCounter />
         <Testimonials />
+        <LocationMap />
         <ContactForm />
+        
       </main>
     </>
   )

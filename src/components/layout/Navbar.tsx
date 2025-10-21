@@ -26,12 +26,13 @@ const navItems: NavItem[] = [
   { title: 'Industries', href: '/industries' },
   { title: 'Blog', href: '/blog' },
   { title: 'Case Studies', href: '/case-studies' },
-  { 
+  {
     title: 'Company', 
     href: '/about',
     hasDropdown: true,
     dropdownItems: [
       { title: 'About Us', href: '/about', description: 'Our story and mission' },
+      { title: 'Office Location', href: '/location', description: 'Visit our Dar es Salaam office' },
       { title: 'Careers', href: '/careers', description: 'Join our team' },
       { title: 'Press & Media', href: '/press', description: 'Media resources and press kit' },
       { title: 'Support', href: '/support', description: 'Get help and resources' }

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Link from 'next/link'
 import { Send, CheckCircle, AlertCircle, Mail, Phone, MapPin, MessageSquare, User, Building, Globe, Sparkles, ArrowRight } from 'lucide-react'
 import { useEmailForm, validateContactForm } from '@/hooks/useEmailForm'
 import type { ContactFormData } from '@/lib/emailjs'
@@ -64,7 +65,8 @@ export default function ContactForm() {
       description: 'We respond within 2 hours',
       color: 'from-blue-500 to-cyan-500',
       bgColor: 'bg-blue-500/10',
-      borderColor: 'border-blue-500/20'
+      borderColor: 'border-blue-500/20',
+      link: 'mailto:helpdesk@neuraltale.com'
     },
     {
       icon: Phone,
@@ -73,16 +75,18 @@ export default function ContactForm() {
       description: 'Mon-Fri, 9AM-6PM EAT',
       color: 'from-green-500 to-emerald-500',
       bgColor: 'bg-green-500/10',
-      borderColor: 'border-green-500/20'
+      borderColor: 'border-green-500/20',
+      link: 'tel:+255653520829'
     },
     {
       icon: MapPin,
-      title: 'Visit Us',
+      title: 'Visit Our Office',
       content: 'Dar es Salaam, Tanzania',
-      description: 'Schedule a meeting',
+      description: 'East Africa - Schedule a meeting',
       color: 'from-purple-500 to-pink-500',
       bgColor: 'bg-purple-500/10',
-      borderColor: 'border-purple-500/20'
+      borderColor: 'border-purple-500/20',
+      link: '/location'
     }
   ]
 
@@ -212,9 +216,8 @@ export default function ContactForm() {
             <div className="space-y-6">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon
-                return (
+                const CardContent = (
                   <motion.div
-                    key={index}
                     variants={itemVariants}
                     whileHover={{ scale: 1.02, x: 8 }}
                     className={`${info.bgColor} ${info.borderColor} rounded-2xl p-6 border backdrop-blur-sm hover:shadow-xl transition-all duration-500 group cursor-pointer`}
@@ -237,6 +240,16 @@ export default function ContactForm() {
                       <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300" />
                     </div>
                   </motion.div>
+                )
+
+                return info.link?.startsWith('/') ? (
+                  <Link key={index} href={info.link}>
+                    {CardContent}
+                  </Link>
+                ) : (
+                  <a key={index} href={info.link} target={info.link?.startsWith('mailto:') || info.link?.startsWith('tel:') ? '_self' : '_blank'} rel="noopener noreferrer">
+                    {CardContent}
+                  </a>
                 )
               })}
             </div>
