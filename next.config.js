@@ -25,8 +25,7 @@ const nextConfig = {
       'framer-motion', 
       'lucide-react', 
       'react-icons',
-      'react-intersection-observer',
-      'react-hook-form'
+      'react-intersection-observer'
     ],
     optimizeCss: true,
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
