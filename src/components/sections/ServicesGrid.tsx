@@ -12,8 +12,11 @@ import {
   Cpu,
   Network,
   Bot,
-  ArrowRight
+  ArrowRight,
+  Repeat2
 } from 'lucide-react'
+import { useState } from 'react'
+import { cn } from '@/lib/utils'
 import type { Service } from '@/types'
 
 const services: Service[] = [
@@ -31,7 +34,7 @@ const services: Service[] = [
     description: 'Enterprise solutions, mobile apps, automation tools, and AI-powered systems tailored to your needs.',
     icon: 'Brain',
     features: ['Enterprise Solutions', 'Mobile Apps', 'Automation Tools', 'AI Systems'],
-    color: 'purple'
+    color: 'blue'
   },
   {
     id: '3',
@@ -39,7 +42,7 @@ const services: Service[] = [
     description: 'Setup, integration, cybersecurity implementation, and ongoing technical support.',
     icon: 'Shield',
     features: ['System Setup', 'Integration', 'Cybersecurity', 'Ongoing Support'],
-    color: 'pink'
+    color: 'blue'
   },
   {
     id: '4',
@@ -47,7 +50,7 @@ const services: Service[] = [
     description: 'Physical security solutions including CCTV surveillance, access control, automated gates, and perimeter security.',
     icon: 'Shield',
     features: ['CCTV Systems', 'Access Control', 'Automated Gates', 'Perimeter Security'],
-    color: 'purple'
+    color: 'blue'
   },
   {
     id: '5',
@@ -55,7 +58,7 @@ const services: Service[] = [
     description: 'Strategic technology planning and digital transformation guidance for your business.',
     icon: 'Cpu',
     features: ['Strategy Planning', 'Digital Transformation', 'Technology Assessment', 'Implementation'],
-    color: 'green'
+    color: 'blue'
   },
   {
     id: '6',
@@ -71,7 +74,7 @@ const services: Service[] = [
     description: 'Comprehensive maintenance services and 24/7 technical support for all your systems.',
     icon: 'Bot',
     features: ['24/7 Support', 'Preventive Maintenance', 'Remote Monitoring', 'Emergency Response'],
-    color: 'purple'
+    color: 'blue'
   }
 ]
 
@@ -87,48 +90,277 @@ const iconMap = {
 }
 
 const colorClasses = {
+  professional: {
+    gradient: 'from-gray-900 to-black',
+    glow: 'shadow-lg hover:shadow-orange-200/20',
+    border: 'border-gray-200 dark:border-gray-700',
+    text: 'text-orange-600',
+    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
+    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    iconGradient: 'from-blue-600 to-blue-700',
+    shadow: 'rgba(249,115,22,0.3)'
+  },
   blue: {
-    gradient: 'from-blue-500 to-blue-600',
-    glow: 'shadow-lg hover:shadow-blue-200',
-    border: 'border-blue-200',
-    text: 'text-blue-600'
+    gradient: 'from-gray-900 to-black',
+    glow: 'shadow-lg hover:shadow-orange-200/20',
+    border: 'border-gray-200 dark:border-gray-700',
+    text: 'text-orange-600',
+    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
+    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    iconGradient: 'from-blue-600 to-blue-700',
+    shadow: 'rgba(249,115,22,0.3)'
   },
   purple: {
-    gradient: 'from-purple-500 to-purple-600',
-    glow: 'shadow-lg hover:shadow-purple-200',
-    border: 'border-purple-200',
-    text: 'text-purple-600'
+    gradient: 'from-gray-900 to-black',
+    glow: 'shadow-lg hover:shadow-orange-200/20',
+    border: 'border-gray-200 dark:border-gray-700',
+    text: 'text-orange-600',
+    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
+    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    iconGradient: 'from-blue-600 to-blue-700',
+    shadow: 'rgba(249,115,22,0.3)'
   },
   pink: {
-    gradient: 'from-pink-500 to-pink-600',
-    glow: 'shadow-lg hover:shadow-pink-200',
-    border: 'border-pink-200',
-    text: 'text-pink-600'
+    gradient: 'from-gray-900 to-black',
+    glow: 'shadow-lg hover:shadow-orange-200/20',
+    border: 'border-gray-200 dark:border-gray-700',
+    text: 'text-orange-600',
+    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
+    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    iconGradient: 'from-blue-600 to-blue-700',
+    shadow: 'rgba(249,115,22,0.3)'
   },
   green: {
-    gradient: 'from-green-500 to-green-600',
-    glow: 'shadow-lg hover:shadow-green-200',
-    border: 'border-green-200',
-    text: 'text-green-600'
+    gradient: 'from-gray-900 to-black',
+    glow: 'shadow-lg hover:shadow-orange-200/20',
+    border: 'border-gray-200 dark:border-gray-700',
+    text: 'text-orange-600',
+    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
+    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    iconGradient: 'from-blue-600 to-blue-700',
+    shadow: 'rgba(249,115,22,0.3)'
   },
   yellow: {
-    gradient: 'from-yellow-500 to-yellow-600',
-    glow: 'shadow-lg hover:shadow-yellow-200',
-    border: 'border-yellow-200',
-    text: 'text-yellow-600'
+    gradient: 'from-gray-900 to-black',
+    glow: 'shadow-lg hover:shadow-orange-200/20',
+    border: 'border-gray-200 dark:border-gray-700',
+    text: 'text-orange-600',
+    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
+    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    iconGradient: 'from-blue-600 to-blue-700',
+    shadow: 'rgba(249,115,22,0.3)'
   },
   indigo: {
-    gradient: 'from-indigo-500 to-indigo-600',
-    glow: 'shadow-lg hover:shadow-indigo-200',
-    border: 'border-indigo-200',
-    text: 'text-indigo-600'
+    gradient: 'from-gray-900 to-black',
+    glow: 'shadow-lg hover:shadow-orange-200/20',
+    border: 'border-gray-200 dark:border-gray-700',
+    text: 'text-orange-600',
+    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
+    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    iconGradient: 'from-orange-500 to-orange-600',
+    shadow: 'rgba(249,115,22,0.3)'
   },
   red: {
-    gradient: 'from-red-500 to-red-600',
-    glow: 'shadow-lg hover:shadow-red-200',
-    border: 'border-red-200',
-    text: 'text-red-600'
+    gradient: 'from-gray-900 to-black',
+    glow: 'shadow-lg hover:shadow-orange-200/20',
+    border: 'border-gray-200 dark:border-gray-700',
+    text: 'text-orange-600',
+    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
+    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    iconGradient: 'from-orange-500 to-orange-600',
+    shadow: 'rgba(249,115,22,0.3)'
   }
+}
+
+// Service Card Flip Component
+function ServiceCardFlip({ service, index, inView }: { service: Service; index: number; inView: boolean }) {
+  const [isFlipped, setIsFlipped] = useState(false)
+  const IconComponent = iconMap[service.icon as keyof typeof iconMap]
+  const colors = colorClasses[service.color]
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50, scale: 0.9 }}
+      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ 
+        duration: 0.6, 
+        delay: index * 0.1,
+        type: 'spring',
+        stiffness: 100
+      }}
+      className="relative w-full max-w-[320px] h-[380px] group [perspective:2000px] mx-auto"
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+    >
+      <div
+        className={cn(
+          "relative w-full h-full",
+          "[transform-style:preserve-3d]",
+          "transition-all duration-700",
+          isFlipped
+            ? "[transform:rotateY(180deg)]"
+            : "[transform:rotateY(0deg)]"
+        )}
+      >
+        {/* Front of card */}
+        <div
+          className={cn(
+            "absolute inset-0 w-full h-full",
+            "[backface-visibility:hidden] [transform:rotateY(0deg)]",
+            "overflow-hidden rounded-2xl",
+            "bg-white dark:bg-zinc-900",
+            `border ${colors.border}`,
+            colors.glow,
+            "transition-all duration-700",
+            "group-hover:shadow-xl",
+            isFlipped ? "opacity-0" : "opacity-100"
+          )}
+        >
+          {/* Animated Icon Background */}
+          <div className={`relative h-full overflow-hidden bg-gradient-to-b ${colors.bgGradient}`}>
+            <div className="absolute inset-0 flex items-start justify-center pt-16">
+              <div className="relative w-[200px] h-[120px] flex items-center justify-center">
+                {/* Animated particles behind icon */}
+                {[...Array(6)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className={cn(
+                      "absolute w-[30px] h-[30px]",
+                      "rounded-full",
+                      "opacity-0",
+                      "shadow-[0_0_20px_rgba(249,115,22,0.4)]"
+                    )}
+                    animate={{
+                      scale: [1.5, 1, 0.3],
+                      opacity: [0, 0.7, 0],
+                      y: [0, -3, 3]
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: i * 0.5,
+                      ease: "linear"
+                    }}
+                  />
+                ))}
+                
+                {/* Main service icon */}
+                <motion.div
+                  whileHover={{ rotate: 10, scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className={`
+                    relative z-10 w-20 h-20 p-5 rounded-xl bg-gradient-to-br ${colors.iconGradient}
+                    shadow-xl border border-slate-300/20
+                  `}
+                >
+                  <IconComponent className="w-full h-full text-white" />
+                </motion.div>
+              </div>
+            </div>
+          </div>
+
+          {/* Front card content */}
+          <div className="absolute bottom-0 left-0 right-0 p-6">
+            <div className="flex items-center justify-between gap-3">
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-4px]">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2 tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-4px] delay-75">
+                  {service.description.slice(0, 80)}...
+                </p>
+              </div>
+              <div className="relative group/icon">
+                <div
+                  className={cn(
+                    "absolute inset-[-8px] rounded-lg transition-opacity duration-300",
+                    "bg-gradient-to-br from-slate-500/20 via-slate-500/10 to-transparent"
+                  )}
+                />
+                <Repeat2 className="relative z-10 w-5 h-5 text-orange-600 transition-transform duration-300 group-hover/icon:scale-110 group-hover/icon:-rotate-12" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Back of card */}
+        <div
+          className={cn(
+            "absolute inset-0 w-full h-full",
+            "[backface-visibility:hidden] [transform:rotateY(180deg)]",
+            "p-6 rounded-2xl",
+            `bg-gradient-to-b ${colors.bgGradient}`,
+            `border ${colors.border}`,
+            colors.glow,
+            "flex flex-col",
+            "transition-all duration-700",
+            "group-hover:shadow-xl",
+            !isFlipped ? "opacity-0" : "opacity-100"
+          )}
+        >
+          <div className="flex-1 space-y-6">
+            <div className="space-y-3">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-2px]">
+                {service.title}
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-2px] line-clamp-3">
+                {service.description}
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              {service.features.map((feature, featureIndex) => (
+                <motion.div
+                  key={feature}
+                  className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 transition-all duration-500"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isFlipped ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ delay: (featureIndex * 0.1) + 0.2 }}
+                >
+                  <ArrowRight className="w-3 h-3 text-orange-600" />
+                  <span>{feature}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700">
+            <Link href="/services">
+              <div
+                className={cn(
+                  "group/start relative",
+                  "flex items-center justify-between",
+                  "p-4 -m-4 rounded-xl",
+                  "transition-all duration-300",
+                  "bg-gradient-to-r from-gray-100 via-gray-100 to-gray-100",
+                  "dark:from-gray-800 dark:via-gray-800 dark:to-gray-800",
+                  "hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent",
+                  "hover:scale-[1.02] hover:cursor-pointer"
+                )}
+              >
+                <span className="text-sm font-semibold text-gray-900 dark:text-white transition-colors duration-300 group-hover/start:text-orange-600">
+                  Learn More
+                </span>
+                <div className="relative group/icon">
+                  <div
+                    className={cn(
+                      "absolute inset-[-6px] rounded-lg transition-all duration-300",
+                      "bg-gradient-to-br from-orange-600/20 via-orange-600/10 to-transparent",
+                      "opacity-0 group-hover/start:opacity-100 scale-90 group-hover/start:scale-100"
+                    )}
+                  />
+                  <ArrowRight className="relative z-10 w-4 h-4 text-orange-600 transition-all duration-300 group-hover/start:translate-x-0.5 group-hover/start:scale-110" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* No inline styles needed anymore - using Framer Motion animations */}
+    </motion.div>
+  )
 }
 
 export default function ServicesGrid() {
@@ -155,137 +387,15 @@ export default function ServicesGrid() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => {
-            const IconComponent = iconMap[service.icon as keyof typeof iconMap]
-            const colors = colorClasses[service.color]
-            
-            return (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.1,
-                  type: 'spring',
-                  stiffness: 100
-                }}
-                whileHover={{ 
-                  scale: 1.05, 
-                  rotateY: 5,
-                  rotateX: 5,
-                }}
-                className={`
-                  relative group bg-white rounded-2xl p-6 border ${colors.border}
-                  ${colors.glow} transition-all duration-500 shadow-lg
-                  transform-gpu perspective-1000
-                `}
-              >
-                {/* Background Gradient */}
-                <div className={`
-                  absolute inset-0 bg-gradient-to-br ${colors.gradient} opacity-0 
-                  group-hover:opacity-10 transition-opacity duration-500 rounded-2xl
-                `} />
-                
-                {/* Floating Icon */}
-                <motion.div
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.6 }}
-                  className={`
-                    w-16 h-16 mx-auto mb-6 p-4 rounded-xl bg-gradient-to-br ${colors.gradient}
-                    ${colors.glow} relative z-10
-                  `}
-                >
-                  <IconComponent className="w-full h-full text-white" />
-                </motion.div>
-
-                {/* Content */}
-                <div className="relative z-10 text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:${colors.text} transition-colors">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* Features - Show fewer on mobile */}
-                  <div className="space-y-2">
-                    {service.features.slice(0, 2).map((feature, featureIndex) => (
-                      <motion.div
-                        key={featureIndex}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={inView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: index * 0.1 + featureIndex * 0.05 }}
-                        className="flex items-center justify-center text-xs text-gray-500"
-                      >
-                        <div className={`w-1 h-1 bg-gradient-to-r ${colors.gradient} rounded-full mr-2`} />
-                        {feature}
-                      </motion.div>
-                    ))}
-                    {/* Show remaining features only on desktop */}
-                    {service.features.slice(2).map((feature, featureIndex) => (
-                      <motion.div
-                        key={featureIndex + 2}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={inView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: index * 0.1 + (featureIndex + 2) * 0.05 }}
-                        className="hidden md:flex items-center justify-center text-xs text-gray-500"
-                      >
-                        <div className={`w-1 h-1 bg-gradient-to-r ${colors.gradient} rounded-full mr-2`} />
-                        {feature}
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Learn More Button */}
-                  <Link href="/services">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`
-                      mt-6 px-4 py-2 text-sm font-medium border ${colors.border}
-                      ${colors.text} rounded-lg hover:bg-gradient-to-r hover:${colors.gradient}
-                      hover:text-white transition-all duration-300 relative overflow-hidden group/btn
-                    `}
-                  >
-                    <span className="relative z-10">Learn More</span>
-                    <div className={`
-                      absolute inset-0 bg-gradient-to-r ${colors.gradient} 
-                      transform -translate-x-full group-hover/btn:translate-x-0 
-                      transition-transform duration-300
-                    `} />
-                  </motion.button>
-                  </Link>
-                </div>
-
-                {/* Floating particles */}
-                <div className="absolute inset-0 pointer-events-none">
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className={`absolute w-1 h-1 bg-gradient-to-r ${colors.gradient} rounded-full`}
-                      style={{
-                        left: `${20 + i * 30}%`,
-                        top: `${30 + i * 20}%`,
-                      }}
-                      animate={{
-                        y: [0, -10, 0],
-                        opacity: [0.3, 0.8, 0.3],
-                        scale: [1, 1.5, 1],
-                      }}
-                      transition={{
-                        duration: 3 + i,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                      }}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            )
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-6">
+          {services.map((service, index) => (
+            <ServiceCardFlip
+              key={service.id}
+              service={service}
+              index={index}
+              inView={inView}
+            />
+          ))}
         </div>
 
         {/* Call to Action */}
@@ -299,7 +409,7 @@ export default function ServicesGrid() {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-lg shadow-2xl relative overflow-hidden group"
+              className="px-8 py-4 bg-orange-500 text-white font-bold text-lg rounded-lg shadow-2xl relative overflow-hidden group"
             >
               <span className="relative z-10 flex items-center space-x-2">
                 <span>View All Services & Packages</span>
