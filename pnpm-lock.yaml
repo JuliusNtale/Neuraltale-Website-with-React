@@ -20,9 +20,6 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.19(tailwindcss@3.4.18)
-      '@types/node':
-        specifier: ^20.14.10
-        version: 20.19.24
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.26
@@ -96,6 +93,9 @@ importers:
         specifier: ^5.5.3
         version: 5.9.3
     devDependencies:
+      '@types/node':
+        specifier: ^20.14.10
+        version: 20.19.24
       eslint:
         specifier: ^8.57.0
         version: 8.57.1

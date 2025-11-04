@@ -1,7 +1,7 @@
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import '../styles/globals.css'
 import { Metadata } from 'next'
-import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/next'
 import StructuredData from '@/components/SEO/StructuredData'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
