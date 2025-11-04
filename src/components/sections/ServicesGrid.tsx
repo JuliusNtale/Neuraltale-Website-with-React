@@ -157,7 +157,7 @@ const colorClasses = {
     text: 'text-orange-600',
     bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
     hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
-    iconGradient: 'from-orange-500 to-orange-600',
+    iconGradient: 'from-blue-600 to-blue-700',
     shadow: 'rgba(249,115,22,0.3)'
   },
   red: {
@@ -167,7 +167,7 @@ const colorClasses = {
     text: 'text-orange-600',
     bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
     hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
-    iconGradient: 'from-orange-500 to-orange-600',
+    iconGradient: 'from-blue-600 to-blue-700',
     shadow: 'rgba(249,115,22,0.3)'
   }
 }
