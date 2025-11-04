@@ -27,83 +27,22 @@ const nextConfig = {
       'react-icons',
       'react-intersection-observer'
     ],
-    optimizeCss: true,
+    // optimizeCss: true, // Disabled due to CSS parsing issues
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
   },
   // Enable compression
   compress: true,
   // Enable React strict mode
   reactStrictMode: true,
-  // Font optimization (Vercel supports it, disable for static export)
-  optimizeFonts: process.env.VERCEL ? true : false,
   // Performance optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
     styledComponents: false,
   },
-  swcMinify: true,
   poweredByHeader: false,
   generateEtags: process.env.VERCEL ? true : false,
-  // Webpack optimization
-  webpack: (config, { dev, isServer }) => {
-    // Only run in production
-    if (!dev && !isServer) {
-      // Enhanced code splitting
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        maxSize: 244000,
-        cacheGroups: {
-          default: {
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true,
-          },
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            priority: -10,
-            chunks: 'all',
-            maxSize: 244000,
-          },
-          react: {
-            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-            name: 'react',
-            chunks: 'all',
-            priority: 20,
-          },
-          motion: {
-            test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
-            name: 'motion',
-            chunks: 'async',
-            priority: 10,
-          },
-          common: {
-            name: 'common',
-            minChunks: 2,
-            chunks: 'all',
-            enforce: true,
-            priority: 5,
-          },
-        },
-      };
-
-      // Tree shaking optimization
-      config.optimization.usedExports = true;
-      config.optimization.sideEffects = false;
-    }
-
-    // Bundle analyzer
-    if (process.env.ANALYZE === 'true') {
-      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          openAnalyzer: false,
-        })
-      );
-    }
-    return config;
-  },
+  // Turbopack configuration (required for Next.js 16)
+  turbopack: {},
 };
 
 module.exports = nextConfig;

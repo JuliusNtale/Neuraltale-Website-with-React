@@ -19,8 +19,6 @@ import {
   FaCheckCircle,
   FaInfoCircle,
   FaArrowRight,
-  FaCalendarAlt,
-  FaGlobe,
   FaShieldAlt
 } from 'react-icons/fa'
 

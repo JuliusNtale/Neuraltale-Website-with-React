@@ -39,7 +39,7 @@ const BlogList = () => {
       category: 'guides',
       tags: ['Domain Registration', 'Business Guide', 'Website Setup', '.co.tz', 'Tanzania'],
       featured: true,
-      image: '/blog/domain-types-guide.jpg',
+      image: '/og-image.png',
       seo: {
         title: 'Complete Guide to Domain Types in Tanzania: .com, .co.tz, .org - Which Should You Choose?',
         description: 'Expert guide on choosing the right domain extension for your Tanzanian business. Compare .com, .co.tz, .org and make the best decision.',
@@ -58,7 +58,7 @@ const BlogList = () => {
       category: 'mpesa',
       tags: ['M-Pesa', 'Captive Portal', 'Wi-Fi Hotspot', 'Tutorial'],
       featured: true,
-      image: '/blog/captive-portal-mpesa.jpg',
+      image: '/og-image.png',
       seo: {
         title: 'How to Deploy Captive Portal with M-Pesa Vouchers - Complete Guide',
         description: 'Step-by-step tutorial for creating Wi-Fi hotspot with M-Pesa voucher system in Tanzania. Includes API integration, portal setup, and monetization strategies.',
@@ -77,7 +77,7 @@ const BlogList = () => {
       category: 'networking',
       tags: ['TP-Link Omada', 'UniFi', 'Hotel WiFi', 'Comparison'],
       featured: true,
-      image: '/blog/omada-vs-unifi-hotels.jpg',
+      image: '/og-image.png',
       seo: {
         title: 'TP-Link Omada vs UniFi for Hotels Tanzania - Complete Comparison 2025',
         description: 'Expert comparison of TP-Link Omada vs Ubiquiti UniFi for hotel WiFi in Tanzania. Includes cost analysis, guest portal features, and deployment recommendations.',
@@ -96,7 +96,7 @@ const BlogList = () => {
       category: 'networking',
       tags: ['SME', 'Network Equipment', 'Buying Guide', 'Business'],
       featured: false,
-      image: '/blog/sme-networking-guide.jpg',
+      image: '/og-image.png',
       seo: {
         title: 'SME Network Equipment Buying Guide Tanzania - What to Ask Before Purchasing',
         description: 'Essential guide for SMEs in Tanzania buying network equipment. Learn what questions to ask, avoid costly mistakes, and choose the right networking solution.',

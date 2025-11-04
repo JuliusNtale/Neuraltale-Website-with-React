@@ -162,7 +162,7 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
             What Our Clients Say
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -170,28 +170,32 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
+        {/* Category Filter - Show fewer options on mobile */}
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+          {categories.map((category, index) => (
             <button
               key={category.id}
               onClick={() => {
                 setSelectedCategory(category.id)
                 setCurrentIndex(0)
               }}
-              className={`px-6 py-3 rounded-lg border-2 transition-all duration-300 ${
+              className={`px-3 md:px-5 py-2 md:py-3 rounded-lg border-2 transition-all duration-300 text-sm md:text-base ${
                 selectedCategory === category.id
                   ? 'bg-blue-600 text-white border-blue-600'
                   : 'bg-white text-gray-700 border-gray-300 hover:border-blue-300 hover:text-blue-600'
+              } ${
+                // Hide some categories on mobile (keep first 3)
+                index > 2 ? 'hidden sm:inline-block' : ''
               }`}
             >
-              {category.name} ({category.count})
+              <span className="md:hidden">{category.name}</span>
+              <span className="hidden md:inline">{category.name} ({category.count})</span>
             </button>
           ))}
         </div>
 
         {/* Main Testimonial Display */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto ">
           <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 relative">
             {/* Quote Icon */}
             <div className="absolute top-6 left-6 text-blue-100">
@@ -221,12 +225,12 @@ const Testimonials = () => {
               </div>
 
               {/* Testimonial Content */}
-              <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 font-medium italic">
+              <blockquote className="text-xl md:text-xl text-gray-700 leading-relaxed mb-8 font-medium italic">
                 "{currentTestimonial.content}"
               </blockquote>
 
               {/* Client Info */}
-              <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6 mb-8">
+              <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6 mb-3">
                 <div className="w-20 h-20 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">
                   {getInitials(currentTestimonial.name)}
                 </div>
@@ -243,15 +247,23 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              {/* Project Details */}
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h5 className="font-semibold text-gray-900 mb-3">Project: {currentTestimonial.project}</h5>
-                <div className="grid md:grid-cols-3 gap-4">
-                  {currentTestimonial.results.map((result, index) => (
-                    <div key={index} className="text-sm text-gray-600 bg-white rounded p-3">
+              {/* Project Details - Simplified on mobile */}
+              <div className="bg-gray-50 rounded-lg p-4 md:p-6">
+                <h5 className="font-semibold text-gray-900 mb-3 text-sm md:text-base">
+                  <span className="hidden md:inline">Project: </span>{currentTestimonial.project}
+                </h5>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
+                  {currentTestimonial.results.slice(0, 2).map((result, index) => (
+                    <div key={index} className="text-xs md:text-sm text-gray-600 bg-white rounded p-2 md:p-3">
                       ✓ {result}
                     </div>
                   ))}
+                  {/* Show third result only on desktop */}
+                  {currentTestimonial.results[2] && (
+                    <div className="hidden md:block text-sm text-gray-600 bg-white rounded p-3">
+                      ✓ {currentTestimonial.results[2]}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -272,8 +284,8 @@ const Testimonials = () => {
           </div>
         </div>
 
-        {/* All Testimonials Grid */}
-        <div className="mt-16">
+        {/* All Testimonials Grid - Hidden on mobile to reduce duplication */}
+        <div className="mt-16 hidden md:block">
           <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
             All Customer Success Stories
           </h3>

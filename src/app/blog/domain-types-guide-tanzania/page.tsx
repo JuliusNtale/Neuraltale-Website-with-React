@@ -586,7 +586,7 @@ A domain extension (also called Top-Level Domain or TLD) is the part that comes 
   category: 'guides',
   tags: ['Domain Registration', 'Business Guide', 'Website Setup', '.co.tz', 'Tanzania'],
   featured: true,
-  image: '/blog/domain-types-guide.jpg'
+  image: '/og-image.png'
 }
 
 export default function DomainTypesGuidePage() {

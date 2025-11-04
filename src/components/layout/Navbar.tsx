@@ -10,6 +10,7 @@ import type { NavItem } from '@/types'
 
 const navItems: NavItem[] = [
   { title: 'Home', href: '/' },
+  { title: 'Eshop', href: 'https://eshop.neuraltale.com' },
   { title: 'Solutions', href: '/solutions' },
   { 
     title: 'Services', 
@@ -24,7 +25,7 @@ const navItems: NavItem[] = [
     ]
   },
   { title: 'Industries', href: '/industries' },
-  { title: 'Blog', href: '/blog' },
+  
   { title: 'Case Studies', href: '/case-studies' },
   {
     title: 'Company', 
@@ -34,6 +35,7 @@ const navItems: NavItem[] = [
       { title: 'About Us', href: '/about', description: 'Our story and mission' },
       { title: 'Office Location', href: '/location', description: 'Visit our Dar es Salaam office' },
       { title: 'Careers', href: '/careers', description: 'Join our team' },
+      { title: 'Blog', href: '/blog',description:'Read Most asked Questions' },
       { title: 'Press & Media', href: '/press', description: 'Media resources and press kit' },
       { title: 'Support', href: '/support', description: 'Get help and resources' }
     ]

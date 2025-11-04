@@ -198,14 +198,14 @@ const Press = () => {
                 About Neuraltale
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Founded in 2020, Neuraltale is Tanzania's leading IT equipment supplier 
+                Founded in 2025, Neuraltale is Tanzania's leading IT equipment supplier 
                 and technology solutions provider. We specialize in enterprise networking, 
                 M-Pesa integration, and custom software development for businesses across 
                 SME, hospitality, education, and retail sectors.
               </p>
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { label: 'Founded', value: '2020' },
+                  { label: 'Founded', value: '2025' },
                   { label: 'Employees', value: '50+' },
                   { label: 'Clients Served', value: '500+' },
                   { label: 'Projects Completed', value: '1,000+' }
@@ -271,7 +271,7 @@ const Press = () => {
                   
                   <p className="text-gray-600 mb-4">
                     Julius is a technology entrepreneur and software engineer with over 8 years of experience 
-                    in the IT industry. He founded Neuraltale in 2020 with a vision to bridge the 
+                    in the IT industry. He founded Neuraltale in 2025 with a vision to bridge the 
                     technology gap for businesses in Tanzania through innovative and affordable solutions.
                   </p>
                   

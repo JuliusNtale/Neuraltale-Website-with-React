@@ -240,30 +240,51 @@ export default function Footer() {
 
         {/* Floating Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(12)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -30, 0],
-                x: [0, 15, -15, 0],
-                rotate: [0, 360],
-                opacity: [0.1, 0.3, 0.1],
-              }}
-              transition={{
-                duration: 10 + Math.random() * 5,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay: Math.random() * 3,
-              }}
-            >
-              <div className="w-1 h-1 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full" />
-            </motion.div>
-          ))}
+          {[...Array(12)].map((_, i) => {
+            // Predefined positions to avoid hydration mismatches
+            const positions = [
+              { left: 94.2, top: 99.3 },
+              { left: 15.8, top: 39.6 },
+              { left: 58.7, top: 66.3 },
+              { left: 60.0, top: 48.4 },
+              { left: 0.5, top: 48.7 },
+              { left: 83.2, top: 25.6 },
+              { left: 27.6, top: 85.7 },
+              { left: 42.9, top: 11.3 },
+              { left: 85.4, top: 21.5 },
+              { left: 13.9, top: 11.6 },
+              { left: 61.3, top: 82.2 },
+              { left: 50.2, top: 99.1 }
+            ]
+            const position = positions[i] || { left: 50, top: 50 }
+            const duration = 10 + (i * 0.5) // Deterministic duration based on index
+            const delay = i * 0.25 // Deterministic delay based on index
+            
+            return (
+              <motion.div
+                key={i}
+                className="absolute"
+                style={{
+                  left: `${position.left}%`,
+                  top: `${position.top}%`,
+                }}
+                animate={{
+                  y: [0, -30, 0],
+                  x: [0, 15, -15, 0],
+                  rotate: [0, 360],
+                  opacity: [0.1, 0.3, 0.1],
+                }}
+                transition={{
+                  duration: duration,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: delay,
+                }}
+              >
+                <div className="w-1 h-1 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full" />
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </footer>

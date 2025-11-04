@@ -11,7 +11,7 @@ import type { Stat } from '@/types'
 const stats: Stat[] = [
   {
     id: '1',
-    value: 10000,
+    value: 1000,
     label: 'Happy Clients',
     suffix: '+',
   },
@@ -35,7 +35,7 @@ const stats: Stat[] = [
   },
   {
     id: '5',
-    value: 150,
+    value: 50,
     label: 'Team Members',
     suffix: '+',
   },
@@ -219,16 +219,20 @@ export default function StatsCounter() {
           </p>
         </motion.div>
 
-        {/* Stats Grid */}
+        {/* Stats Grid - Hide last 3 stats on mobile using CSS only */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
-            <StatCard
-              key={stat.id}
-              stat={stat}
-              icon={statIcons[index]}
-              index={index}
-              inView={inView}
-            />
+            <div 
+              key={stat.id} 
+              className={`${index >= 3 ? 'hidden md:block' : ''}`}
+            >
+              <StatCard
+                stat={stat}
+                icon={statIcons[index]}
+                index={index}
+                inView={inView}
+              />
+            </div>
           ))}
         </div>
 
@@ -237,7 +241,7 @@ export default function StatsCounter() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 1, duration: 0.8 }}
-          className="mt-20 text-center"
+          className="mt-20 text-center "
         >
           <div className="glass rounded-2xl p-8 border border-gray-700 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-white mb-4">
@@ -266,30 +270,47 @@ export default function StatsCounter() {
 
         {/* Floating Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -20, 0],
-                x: [0, 10, -10, 0],
-                rotate: [0, 180, 360],
-                opacity: [0.1, 0.3, 0.1],
-              }}
-              transition={{
-                duration: 8 + Math.random() * 4,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay: Math.random() * 2,
-              }}
-            >
-              <div className="w-2 h-2 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full" />
-            </motion.div>
-          ))}
+          {[...Array(8)].map((_, i) => {
+            // Predefined positions to avoid hydration mismatches
+            const positions = [
+              { left: 15.2, top: 20.1 },
+              { left: 85.4, top: 75.3 },
+              { left: 45.7, top: 35.8 },
+              { left: 72.1, top: 60.2 },
+              { left: 28.6, top: 85.7 },
+              { left: 62.3, top: 15.4 },
+              { left: 8.9, top: 55.1 },
+              { left: 93.2, top: 40.8 }
+            ]
+            const position = positions[i] || { left: 50, top: 50 }
+            const duration = 8 + (i * 0.5) // Deterministic duration based on index
+            const delay = i * 0.25 // Deterministic delay based on index
+            
+            return (
+              <motion.div
+                key={i}
+                className="absolute"
+                style={{
+                  left: `${position.left}%`,
+                  top: `${position.top}%`,
+                }}
+                animate={{
+                  y: [0, -20, 0],
+                  x: [0, 10, -10, 0],
+                  rotate: [0, 180, 360],
+                  opacity: [0.1, 0.3, 0.1],
+                }}
+                transition={{
+                  duration: duration,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: delay,
+                }}
+              >
+                <div className="w-2 h-2 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full" />
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

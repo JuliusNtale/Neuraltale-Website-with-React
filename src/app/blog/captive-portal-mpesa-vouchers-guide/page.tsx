@@ -21,7 +21,7 @@ const postData = {
   readTime: '15 min read',
   category: 'M-Pesa Integration',
   tags: ['M-Pesa', 'Captive Portal', 'Wi-Fi Hotspot', 'Tutorial'],
-  image: '/blog/captive-portal-mpesa.jpg',
+  image: '/og-image.png',
   content: `
 <div class="prose prose-lg max-w-none">
 

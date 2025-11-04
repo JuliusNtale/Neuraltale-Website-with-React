@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+
 import { 
   FaCode, 
   FaDatabase, 
@@ -397,12 +397,7 @@ const CorporateServicesPage = () => {
                 >
                   Get Free Consultation
                 </button>
-                <Link
-                  href="#contact"
-                  className="px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-blue-600 transition-colors duration-300 inline-block"
-                >
-                  Contact Our Team
-                </Link>
+               
               </div>
             </div>
           </div>

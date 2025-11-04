@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Building2, Calendar, MapPin, User, Target, Heart } from 'lucide-react'
+import LogoCloud from '../logo-cloud'
 
 const companyStats = [
   { label: 'Founded', value: '2025', icon: Calendar },
@@ -11,33 +12,7 @@ const companyStats = [
   { label: 'Structure', value: 'Limited Liability Company', icon: Building2 },
 ]
 
-const coreValues = [
-  {
-    title: 'Innovation',
-    description: 'Always exploring the new.',
-    icon: '💡'
-  },
-  {
-    title: 'Excellence',
-    description: 'Quality without compromise.',
-    icon: '⭐'
-  },
-  {
-    title: 'Integrity',
-    description: 'Honest and transparent in all we do.',
-    icon: '🤝'
-  },
-  {
-    title: 'Client-Centricity',
-    description: 'Solutions built around people.',
-    icon: '👥'
-  },
-  {
-    title: 'Sustainability',
-    description: 'Technology for a better tomorrow.',
-    icon: '🌱'
-  }
-]
+
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -142,37 +117,10 @@ export default function About() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <h3 className="text-3xl font-bold text-center mb-12 gradient-text">Our Core Values</h3>
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {coreValues.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg text-center hover:border-neon-blue/50 transition-colors duration-300"
-              >
-                <div className="text-4xl mb-4">{value.icon}</div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">{value.title}</h4>
-                <p className="text-sm text-gray-600">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
+         <LogoCloud />
         </motion.div>
 
-        {/* Global Ambition */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mt-16 border border-gray-200 shadow-lg"
-        >
-          <h3 className="text-2xl font-bold mb-6 gradient-text text-center">Global Ambition</h3>
-          <p className="text-lg text-gray-600 leading-relaxed text-center max-w-4xl mx-auto">
-            We see Neuraltale as a global African brand, expanding across East Africa, then internationally — 
-            driven by partnerships, research, and relentless innovation.
-          </p>
-        </motion.div>
+      
       </div>
     </section>
   )

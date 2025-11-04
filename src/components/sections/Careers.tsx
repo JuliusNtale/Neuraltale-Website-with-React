@@ -3,15 +3,10 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { 
-  FaCode,
-  FaNetworkWired,
-  FaHeadset,
-  FaChartLine,
   FaUsers,
   FaGraduationCap,
   FaClock,
   FaMapMarkerAlt,
-  FaDollarSign,
   FaArrowRight,
   FaHeart,
   FaRocket,
@@ -46,7 +41,7 @@ const CareersPage = () => {
       id: 1,
       title: 'Senior Software Developer',
       department: 'engineering',
-      type: 'Full-time',
+      type: 'Remote',
       location: 'Dar es Salaam',
       experience: '3-5 years',
       description: 'Lead development of custom software solutions for our enterprise clients across various industries.',
@@ -76,7 +71,7 @@ const CareersPage = () => {
       id: 2,
       title: 'Network Infrastructure Specialist',
       department: 'engineering',
-      type: 'Full-time',
+      type: 'Part-time',
       location: 'Arusha',
       experience: '2-4 years',
       description: 'Design and implement enterprise network solutions using Omada and UniFi technologies.',

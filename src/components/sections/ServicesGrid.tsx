@@ -210,9 +210,9 @@ export default function ServicesGrid() {
                     {service.description}
                   </p>
 
-                  {/* Features */}
+                  {/* Features - Show fewer on mobile */}
                   <div className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
+                    {service.features.slice(0, 2).map((feature, featureIndex) => (
                       <motion.div
                         key={featureIndex}
                         initial={{ opacity: 0, x: -20 }}
@@ -224,9 +224,23 @@ export default function ServicesGrid() {
                         {feature}
                       </motion.div>
                     ))}
+                    {/* Show remaining features only on desktop */}
+                    {service.features.slice(2).map((feature, featureIndex) => (
+                      <motion.div
+                        key={featureIndex + 2}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={inView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ delay: index * 0.1 + (featureIndex + 2) * 0.05 }}
+                        className="hidden md:flex items-center justify-center text-xs text-gray-500"
+                      >
+                        <div className={`w-1 h-1 bg-gradient-to-r ${colors.gradient} rounded-full mr-2`} />
+                        {feature}
+                      </motion.div>
+                    ))}
                   </div>
 
                   {/* Learn More Button */}
+                  <Link href="/services">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -243,6 +257,7 @@ export default function ServicesGrid() {
                       transition-transform duration-300
                     `} />
                   </motion.button>
+                  </Link>
                 </div>
 
                 {/* Floating particles */}

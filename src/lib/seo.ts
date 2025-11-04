@@ -90,7 +90,7 @@ export const organizationSchema = {
     "@type": "Country",
     name: "Tanzania"
   },
-  foundingDate: "2020",
+  foundingDate: "2025",
   numberOfEmployees: {
     "@type": "QuantitativeValue",
     value: "50"

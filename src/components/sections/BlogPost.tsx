@@ -7,7 +7,6 @@ import {
   FaUser,
   FaTag,
   FaArrowLeft,
-  FaShare,
   FaTwitter,
   FaFacebook,
   FaLinkedin,

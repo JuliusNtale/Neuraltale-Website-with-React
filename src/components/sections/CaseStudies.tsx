@@ -7,15 +7,12 @@ import {
   FaHotel,
   FaGraduationCap,
   FaStore,
-  FaChartLine,
   FaClock,
   FaUsers,
-  FaDollarSign,
   FaArrowRight,
   FaQuoteLeft,
   FaCalendarAlt,
   FaDownload,
-  FaExternalLinkAlt
 } from 'react-icons/fa'
 
 const CaseStudiesPage = () => {

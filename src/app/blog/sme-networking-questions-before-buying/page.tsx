@@ -792,7 +792,7 @@ const blogPost = {
 </div>
 
 </div>
-  image: '/blog/sme-networking-guide.jpg',
+  image: '/og-image.png',
 - **Daily cost**: For 10 devices = ~2,400 TSh/day
 
 ## 4. Performance and Scalability Questions

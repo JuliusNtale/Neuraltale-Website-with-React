@@ -10,35 +10,29 @@ import { organizationSchema, localBusinessSchema, serviceSchemas, logoSchema, we
 const About = dynamic(() => import('@/components/sections/About'), {
   loading: () => <div className="min-h-[400px] bg-gray-50 flex items-center justify-center">
     <div className="text-gray-400">Loading About Section...</div>
-  </div>,
-  ssr: false
+  </div>
 })
 
 const ServicesGrid = dynamic(() => import('@/components/sections/ServicesGrid'), {
   loading: () => <div className="min-h-[600px] bg-white flex items-center justify-center">
     <div className="text-gray-400">Loading Services...</div>
-  </div>,
-  ssr: true // Keep for SEO but optimize
+  </div>
 })
 
 const StatsCounter = dynamic(() => import('@/components/sections/StatsCounter'), {
-  loading: () => <div className="min-h-[300px] bg-gray-50" />,
-  ssr: false
+  loading: () => <div className="min-h-[300px] bg-gray-50" />
 })
 
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials'), {
-  loading: () => <div className="min-h-[500px] bg-white" />,
-  ssr: false
+  loading: () => <div className="min-h-[500px] bg-white" />
 })
 
 const ContactForm = dynamic(() => import('@/components/sections/ContactForm'), {
-  loading: () => <div className="min-h-[600px] bg-gray-50" />,
-  ssr: false
+  loading: () => <div className="min-h-[600px] bg-gray-50" />
 })
 
 const LocationMap = dynamic(() => import('@/components/sections/LocationMap'), {
-  loading: () => <div className="min-h-[500px] bg-gray-50" />,
-  ssr: false
+  loading: () => <div className="min-h-[500px] bg-gray-50" />
 })
 
 export const metadata: Metadata = {

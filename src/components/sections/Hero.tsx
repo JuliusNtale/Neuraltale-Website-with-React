@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 import Logo from '@/components/ui/Logo'
 import dynamic from 'next/dynamic'
-import DarkVeil from './DarkVeil'
+import DarkVeil from '../reactbits/DarkVeil'
 
 // Lazy load heavy animations
 const MotionDiv = dynamic(() => 
@@ -66,11 +66,11 @@ export default function Hero() {
 
           {/* Scroll indicator - Static for performance */}
           <div 
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+            className="absolute mb-2 left-1/2 transform -translate-x-1/2 cursor-pointer"
             onClick={scrollToServices}
           >
             <div className="flex flex-col items-center text-gray-300 hover:text-blue-400 transition-colors">
-              <span className="text-sm mb-2">Scroll to explore</span>
+              <span className="text-sm mb-2 x">Scroll to explore</span>
               <ChevronDown className="w-6 h-6" />
             </div>
           </div>

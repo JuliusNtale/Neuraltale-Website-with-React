@@ -18,6 +18,11 @@ const sitemapData: SitemapItem[] = [
     href: '/',
     description: 'Main landing page with company overview and services',
     icon: Home,
+  }, {
+    title: 'Eshop',
+    href: 'eshp.neuraltale.com',
+    description: 'electronical shop that provides the best gadgets and devices  ',
+    icon: Home,
   },
   {
     title: 'About',

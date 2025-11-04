@@ -30,7 +30,7 @@ export function StructuredData({ data }: StructuredDataProps) {
           "height": 630
         },
         "description": "Leading IT equipment supplier and technology solutions provider in Tanzania. Specializing in TP-Link Omada, UniFi networks, M-Pesa integration, and custom software development.",
-        "foundingDate": "2020",
+        "foundingDate": "2025",
         "founder": {
           "@type": "Person",
           "name": "Julius Peter Ntale"
