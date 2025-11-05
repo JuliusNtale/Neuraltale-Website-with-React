@@ -11,6 +11,8 @@ const nextConfig = {
     trailingSlash: true,
     skipTrailingSlashRedirect: true,
     distDir: 'out',
+    // Disable server-side features for static export
+    generateBuildId: async () => 'cloudflare-pages-build'
   }),
   images: {
     // Vercel supports image optimization, Cloudflare Pages doesn't

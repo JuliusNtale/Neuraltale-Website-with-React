@@ -6,7 +6,9 @@
       "dom.iterable",
       "es6"
     ],
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -49,7 +51,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "out/types/**/*.ts",
-    "out/dev/types/**/*.ts"
+    "out/dev/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

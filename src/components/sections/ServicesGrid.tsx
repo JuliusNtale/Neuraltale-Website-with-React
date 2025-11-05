@@ -175,7 +175,6 @@ const colorClasses = {
 // Service Card Flip Component
 function ServiceCardFlip({ service, index, inView }: { service: Service; index: number; inView: boolean }) {
   const [isFlipped, setIsFlipped] = useState(false)
-  const IconComponent = iconMap[service.icon as keyof typeof iconMap]
   const colors = colorClasses[service.color]
 
   return (
@@ -216,45 +215,29 @@ function ServiceCardFlip({ service, index, inView }: { service: Service; index: 
             isFlipped ? "opacity-0" : "opacity-100"
           )}
         >
-          {/* Animated Icon Background */}
+          {/* Animated Particle Background */}
           <div className={`relative h-full overflow-hidden bg-gradient-to-b ${colors.bgGradient}`}>
-            <div className="absolute inset-0 flex items-start justify-center pt-16">
-              <div className="relative w-[200px] h-[120px] flex items-center justify-center">
-                {/* Animated particles behind icon */}
-                {[...Array(6)].map((_, i) => (
-                  <motion.div
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative w-[250px] h-[180px] flex items-center justify-center">
+                {/* Animated particles */}
+                {[...Array(10)].map((_, i) => (
+                  <div
                     key={i}
                     className={cn(
-                      "absolute w-[30px] h-[30px]",
-                      "rounded-full",
+                      "absolute w-[70px] h-[70px]",
+                      "rounded-[140px]",
+                      "animate-[scale_3s_linear_infinite]",
                       "opacity-0",
-                      "shadow-[0_0_20px_rgba(249,115,22,0.4)]"
+                      "shadow-[0_0_60px_rgba(59,130,246,0.6)]",
+                      "group-hover:animate-[scale_2s_linear_infinite]"
                     )}
-                    animate={{
-                      scale: [1.5, 1, 0.3],
-                      opacity: [0, 0.7, 0],
-                      y: [0, -3, 3]
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: i * 0.5,
-                      ease: "linear"
+                    style={{
+                      ['--animation-delay' as any]: `${i * 0.3}s`,
+                      animationDelay: `var(--animation-delay)`,
                     }}
                   />
                 ))}
                 
-                {/* Main service icon */}
-                <motion.div
-                  whileHover={{ rotate: 10, scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  className={`
-                    relative z-10 w-20 h-20 p-5 rounded-xl bg-gradient-to-br ${colors.iconGradient}
-                    shadow-xl border border-slate-300/20
-                  `}
-                >
-                  <IconComponent className="w-full h-full text-white" />
-                </motion.div>
               </div>
             </div>
           </div>
@@ -358,7 +341,26 @@ function ServiceCardFlip({ service, index, inView }: { service: Service; index: 
         </div>
       </div>
 
-      {/* No inline styles needed anymore - using Framer Motion animations */}
+      {/* Add the particle animation CSS */}
+      <style jsx>{`
+        @keyframes scale {
+          0% {
+            transform: scale(2);
+            opacity: 0;
+            box-shadow: 0px 0px 60px rgba(59, 130, 246, 0.6);
+          }
+          50% {
+            transform: translate(0px, -5px) scale(1);
+            opacity: 1;
+            box-shadow: 0px 8px 25px rgba(59, 130, 246, 0.6);
+          }
+          100% {
+            transform: translate(0px, 5px) scale(0.1);
+            opacity: 0;
+            box-shadow: 0px 10px 25px rgba(59, 130, 246, 0);
+          }
+        }
+      `}</style>
     </motion.div>
   )
 }
