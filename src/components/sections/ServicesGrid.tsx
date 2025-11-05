@@ -91,84 +91,84 @@ const iconMap = {
 
 const colorClasses = {
   professional: {
-    gradient: 'from-gray-900 to-black',
-    glow: 'shadow-lg hover:shadow-orange-200/20',
-    border: 'border-gray-200 dark:border-gray-700',
+    gradient: 'from-slate-50 to-slate-100',
+    glow: 'shadow-lg hover:shadow-blue-200/30',
+    border: 'border-slate-200/60',
     text: 'text-orange-600',
-    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
-    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    bgGradient: 'from-slate-50 via-white to-slate-50',
+    hover: 'hover:from-blue-50/80 hover:via-blue-50/40 hover:to-slate-50',
     iconGradient: 'from-blue-600 to-blue-700',
-    shadow: 'rgba(249,115,22,0.3)'
+    shadow: 'rgba(59,130,246,0.15)'
   },
   blue: {
-    gradient: 'from-gray-900 to-black',
-    glow: 'shadow-lg hover:shadow-orange-200/20',
-    border: 'border-gray-200 dark:border-gray-700',
+    gradient: 'from-slate-50 to-slate-100',
+    glow: 'shadow-lg hover:shadow-blue-200/30',
+    border: 'border-slate-200/60',
     text: 'text-orange-600',
-    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
-    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    bgGradient: 'from-slate-50 via-white to-slate-50',
+    hover: 'hover:from-blue-50/80 hover:via-blue-50/40 hover:to-slate-50',
     iconGradient: 'from-blue-600 to-blue-700',
-    shadow: 'rgba(249,115,22,0.3)'
+    shadow: 'rgba(59,130,246,0.15)'
   },
   purple: {
-    gradient: 'from-gray-900 to-black',
-    glow: 'shadow-lg hover:shadow-orange-200/20',
-    border: 'border-gray-200 dark:border-gray-700',
+    gradient: 'from-slate-50 to-slate-100',
+    glow: 'shadow-lg hover:shadow-blue-200/30',
+    border: 'border-slate-200/60',
     text: 'text-orange-600',
-    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
-    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    bgGradient: 'from-slate-50 via-white to-slate-50',
+    hover: 'hover:from-blue-50/80 hover:via-blue-50/40 hover:to-slate-50',
     iconGradient: 'from-blue-600 to-blue-700',
-    shadow: 'rgba(249,115,22,0.3)'
+    shadow: 'rgba(59,130,246,0.15)'
   },
   pink: {
-    gradient: 'from-gray-900 to-black',
-    glow: 'shadow-lg hover:shadow-orange-200/20',
-    border: 'border-gray-200 dark:border-gray-700',
+    gradient: 'from-slate-50 to-slate-100',
+    glow: 'shadow-lg hover:shadow-blue-200/30',
+    border: 'border-slate-200/60',
     text: 'text-orange-600',
-    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
-    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    bgGradient: 'from-slate-50 via-white to-slate-50',
+    hover: 'hover:from-blue-50/80 hover:via-blue-50/40 hover:to-slate-50',
     iconGradient: 'from-blue-600 to-blue-700',
-    shadow: 'rgba(249,115,22,0.3)'
+    shadow: 'rgba(59,130,246,0.15)'
   },
   green: {
-    gradient: 'from-gray-900 to-black',
-    glow: 'shadow-lg hover:shadow-orange-200/20',
-    border: 'border-gray-200 dark:border-gray-700',
+    gradient: 'from-slate-50 to-slate-100',
+    glow: 'shadow-lg hover:shadow-blue-200/30',
+    border: 'border-slate-200/60',
     text: 'text-orange-600',
-    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
-    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    bgGradient: 'from-slate-50 via-white to-slate-50',
+    hover: 'hover:from-blue-50/80 hover:via-blue-50/40 hover:to-slate-50',
     iconGradient: 'from-blue-600 to-blue-700',
-    shadow: 'rgba(249,115,22,0.3)'
+    shadow: 'rgba(59,130,246,0.15)'
   },
   yellow: {
-    gradient: 'from-gray-900 to-black',
-    glow: 'shadow-lg hover:shadow-orange-200/20',
-    border: 'border-gray-200 dark:border-gray-700',
+    gradient: 'from-slate-50 to-slate-100',
+    glow: 'shadow-lg hover:shadow-blue-200/30',
+    border: 'border-slate-200/60',
     text: 'text-orange-600',
-    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
-    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    bgGradient: 'from-slate-50 via-white to-slate-50',
+    hover: 'hover:from-blue-50/80 hover:via-blue-50/40 hover:to-slate-50',
     iconGradient: 'from-blue-600 to-blue-700',
-    shadow: 'rgba(249,115,22,0.3)'
+    shadow: 'rgba(59,130,246,0.15)'
   },
   indigo: {
-    gradient: 'from-gray-900 to-black',
-    glow: 'shadow-lg hover:shadow-orange-200/20',
-    border: 'border-gray-200 dark:border-gray-700',
+    gradient: 'from-slate-50 to-slate-100',
+    glow: 'shadow-lg hover:shadow-blue-200/30',
+    border: 'border-slate-200/60',
     text: 'text-orange-600',
-    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
-    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    bgGradient: 'from-slate-50 via-white to-slate-50',
+    hover: 'hover:from-blue-50/80 hover:via-blue-50/40 hover:to-slate-50',
     iconGradient: 'from-blue-600 to-blue-700',
-    shadow: 'rgba(249,115,22,0.3)'
+    shadow: 'rgba(59,130,246,0.15)'
   },
   red: {
-    gradient: 'from-gray-900 to-black',
-    glow: 'shadow-lg hover:shadow-orange-200/20',
-    border: 'border-gray-200 dark:border-gray-700',
+    gradient: 'from-slate-50 to-slate-100',
+    glow: 'shadow-lg hover:shadow-blue-200/30',
+    border: 'border-slate-200/60',
     text: 'text-orange-600',
-    bgGradient: 'from-white to-gray-50 dark:from-gray-900 dark:to-black',
-    hover: 'hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent',
+    bgGradient: 'from-slate-50 via-white to-slate-50',
+    hover: 'hover:from-blue-50/80 hover:via-blue-50/40 hover:to-slate-50',
     iconGradient: 'from-blue-600 to-blue-700',
-    shadow: 'rgba(249,115,22,0.3)'
+    shadow: 'rgba(59,130,246,0.15)'
   }
 }
 
@@ -207,7 +207,7 @@ function ServiceCardFlip({ service, index, inView }: { service: Service; index: 
             "absolute inset-0 w-full h-full",
             "[backface-visibility:hidden] [transform:rotateY(0deg)]",
             "overflow-hidden rounded-2xl",
-            "bg-white dark:bg-zinc-900",
+            "bg-white",
             `border ${colors.border}`,
             colors.glow,
             "transition-all duration-700",
@@ -246,10 +246,10 @@ function ServiceCardFlip({ service, index, inView }: { service: Service; index: 
           <div className="absolute bottom-0 left-0 right-0 p-6">
             <div className="flex items-center justify-between gap-3">
               <div className="space-y-2">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-4px]">
+                <h3 className="text-xl font-bold text-slate-900 leading-tight tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-4px]">
                   {service.title}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2 tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-4px] delay-75">
+                <p className="text-sm text-slate-600 line-clamp-2 tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-4px] delay-75">
                   {service.description.slice(0, 80)}...
                 </p>
               </div>
@@ -283,10 +283,10 @@ function ServiceCardFlip({ service, index, inView }: { service: Service; index: 
         >
           <div className="flex-1 space-y-6">
             <div className="space-y-3">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-2px]">
+              <h3 className="text-xl font-bold text-slate-900 leading-tight tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-2px]">
                 {service.title}
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-2px] line-clamp-3">
+              <p className="text-sm text-slate-600 tracking-tight transition-all duration-500 ease-out group-hover:translate-y-[-2px] line-clamp-3">
                 {service.description}
               </p>
             </div>
@@ -295,7 +295,7 @@ function ServiceCardFlip({ service, index, inView }: { service: Service; index: 
               {service.features.map((feature, featureIndex) => (
                 <motion.div
                   key={feature}
-                  className="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300 transition-all duration-500"
+                  className="flex items-center gap-3 text-sm text-slate-700 transition-all duration-500"
                   initial={{ opacity: 0, x: -20 }}
                   animate={isFlipped ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ delay: (featureIndex * 0.1) + 0.2 }}
@@ -308,7 +308,7 @@ function ServiceCardFlip({ service, index, inView }: { service: Service; index: 
           </div>
 
           {/* CTA Button */}
-          <div className="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700">
+          <div className="pt-6 mt-6 border-t border-slate-200">
             <Link href="/services">
               <div
                 className={cn(
@@ -316,13 +316,12 @@ function ServiceCardFlip({ service, index, inView }: { service: Service; index: 
                   "flex items-center justify-between",
                   "p-4 -m-4 rounded-xl",
                   "transition-all duration-300",
-                  "bg-gradient-to-r from-gray-100 via-gray-100 to-gray-100",
-                  "dark:from-gray-800 dark:via-gray-800 dark:to-gray-800",
-                  "hover:from-orange-500/5 hover:via-orange-500/3 hover:to-transparent",
+                  "bg-gradient-to-r from-slate-100 via-slate-100 to-slate-100",
+                  "hover:from-blue-50/80 hover:via-blue-50/40 hover:to-slate-50",
                   "hover:scale-[1.02] hover:cursor-pointer"
                 )}
               >
-                <span className="text-sm font-semibold text-gray-900 dark:text-white transition-colors duration-300 group-hover/start:text-orange-600">
+                <span className="text-sm font-semibold text-slate-900 transition-colors duration-300 group-hover/start:text-orange-600">
                   Learn More
                 </span>
                 <div className="relative group/icon">

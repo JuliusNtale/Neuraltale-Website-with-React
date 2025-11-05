@@ -286,7 +286,7 @@ export default function ContactForm() {
           >
             <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 relative overflow-hidden">
               {/* Animated gradient border */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 opacity-0 hover:opacity-20 transition-opacity duration-500 animate-pulse" />
+              <div className="absolute inset-0 rounded-3xl " />
               
               <div className="relative z-10">
                 <div className="text-center mb-8">
