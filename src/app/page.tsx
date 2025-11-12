@@ -1,38 +1,57 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import Hero from '@/components/sections/Hero'
 import StructuredData from '@/components/SEO/StructuredData'
 import ResourceHints from '@/components/utils/ResourceHints'
 import { organizationSchema, localBusinessSchema, serviceSchemas, logoSchema, websiteSchema } from '@/lib/seo'
 
-// Critical above-the-fold components - load immediately
+// Critical above-the-fold component - load immediately with high priority
+// Hero is static content, no need for client-side JS initially
+const Hero = dynamic(() => import('@/components/sections/Hero'), {
+  ssr: true,
+  loading: () => (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      <div className="relative z-20 text-center px-4 max-w-6xl mx-auto">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+          IT Equipment Supplier Tanzania
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-300 mb-8">
+          TP-Link Omada • UniFi Networks • M-Pesa Integration
+        </p>
+      </div>
+    </section>
+  ),
+})
+
 // Below-the-fold components - lazy load for better performance
 const About = dynamic(() => import('@/components/sections/About'), {
   loading: () => <div className="min-h-[400px] bg-gray-50 flex items-center justify-center">
-    <div className="text-gray-400">Loading About Section...</div>
-  </div>
+    <div className="text-gray-400">Loading...</div>
+  </div>,
+  ssr: true,
 })
 
 const ServicesGrid = dynamic(() => import('@/components/sections/ServicesGrid'), {
   loading: () => <div className="min-h-[600px] bg-white flex items-center justify-center">
-    <div className="text-gray-400">Loading Services...</div>
-  </div>
+    <div className="text-gray-400">Loading...</div>
+  </div>,
+  ssr: true,
 })
 
 const StatsCounter = dynamic(() => import('@/components/sections/StatsCounter'), {
-  loading: () => <div className="min-h-[300px] bg-gray-50" />
+  loading: () => <div className="min-h-[300px] bg-gray-50" />,
 })
 
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials'), {
-  loading: () => <div className="min-h-[500px] bg-white" />
+  loading: () => <div className="min-h-[500px] bg-white" />,
+  ssr: true,
 })
 
 const ContactForm = dynamic(() => import('@/components/sections/ContactForm'), {
-  loading: () => <div className="min-h-[600px] bg-gray-50" />
+  loading: () => <div className="min-h-[600px] bg-gray-50" />,
 })
 
 const LocationMap = dynamic(() => import('@/components/sections/LocationMap'), {
-  loading: () => <div className="min-h-[500px] bg-gray-50" />
+  loading: () => <div className="min-h-[500px] bg-gray-50" />,
 })
 
 export const metadata: Metadata = {

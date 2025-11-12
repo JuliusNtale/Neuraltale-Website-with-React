@@ -76,42 +76,9 @@ export default function About() {
           ))}
         </motion.div>
 
-        {/* Vision & Mission */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg"
-          >
-            <div className="flex items-center mb-6">
-              <Target className="w-8 h-8 text-neon-blue mr-3" />
-              <h3 className="text-2xl font-bold gradient-text">Vision</h3>
-            </div>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              To redefine how businesses and communities experience technology — building a future 
-              where every challenge meets its perfect solution.
-            </p>
-          </motion.div>
+        
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg"
-          >
-            <div className="flex items-center mb-6">
-              <Heart className="w-8 h-8 text-neon-purple mr-3" />
-              <h3 className="text-2xl font-bold gradient-text">Mission</h3>
-            </div>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              To deliver intelligent software, reliable equipment, and expert services that solve problems, 
-              empower people, and accelerate progress.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Core Values */}
+        {/* Partnership Company */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

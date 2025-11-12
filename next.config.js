@@ -38,11 +38,31 @@ const nextConfig = {
   reactStrictMode: true,
   // Performance optimizations
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
     styledComponents: false,
   },
   poweredByHeader: false,
   generateEtags: process.env.VERCEL ? true : false,
+  // Add headers for better caching
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          },
+        ],
+      },
+    ];
+  },
   // Turbopack configuration (required for Next.js 16)
   turbopack: {},
 };

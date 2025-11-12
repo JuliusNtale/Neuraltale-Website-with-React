@@ -14,6 +14,8 @@ const inter = Inter({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   preload: true,
+  adjustFontFallback: true,
+  fallback: ['system-ui', 'arial'],
 })
 const jetbrainsMono = JetBrains_Mono({ 
   subsets: ['latin'], 
@@ -21,6 +23,8 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ['400', '500'],
   display: 'swap',
   preload: false,
+  adjustFontFallback: true,
+  fallback: ['monospace'],
 })
 
 export const metadata: Metadata = {
