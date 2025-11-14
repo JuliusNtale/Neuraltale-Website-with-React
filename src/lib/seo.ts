@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Neuraltale",
-  description: "Leading computer and laptop supplier in Tanzania. Buy laptops, desktop computers, smartphones, SSDs, computer peripherals, and IT equipment in Dar es Salaam. Dell, HP, Lenovo, Apple MacBook. Best prices on gaming laptops, business computers, computer mouse, keyboards, monitors, printers. TP-Link routers, UniFi networks, network accessories.",
+  description: "Leading technology solutions provider in Tanzania. Custom software development, AI integration, M-Pesa payment systems, IoT solutions, cloud infrastructure, digital transformation, and enterprise IT equipment. Specialized in TP-Link Omada & UniFi network solutions for hotels and businesses in Dar es Salaam.",
   url: "https://neuraltale.com",
   ogImage: "https://neuraltale.com/og-image.jpg",
   links: {
@@ -30,50 +30,42 @@ export const siteConfig = {
     }
   },
   keywords: [
-    // Computer & Laptop Keywords
-    "buy laptops Tanzania",
-    "laptop shop Dar es Salaam",
-    "computer store Tanzania",
-    "desktop computers Dar es Salaam",
-    "gaming laptops Tanzania",
-    "business laptops Dar es Salaam",
-    "Dell laptops Tanzania",
-    "HP laptops Dar es Salaam",
-    "Lenovo computers Tanzania",
-    "Apple MacBook Tanzania",
+    // Technology Solutions (Primary)
+    "technology solutions Tanzania",
+    "software development Dar es Salaam",
+    "custom software Tanzania",
+    "AI integration Dar es Salaam",
+    "M-Pesa integration Tanzania",
+    "IoT solutions Dar es Salaam",
+    "cloud solutions Tanzania",
+    "digital transformation Dar es Salaam",
+    "enterprise IT Tanzania",
+    "business automation Dar es Salaam",
+    // Network Solutions
+    "network infrastructure Tanzania",
+    "TP-Link Omada Tanzania",
+    "UniFi network Dar es Salaam",
+    "hotel WiFi solutions Tanzania",
+    "enterprise networking Dar es Salaam",
+    // Enterprise Equipment (Supporting)
+    "enterprise laptops Tanzania",
+    "business computers Dar es Salaam",
+    "Dell enterprise solutions Tanzania",
+    "HP business laptops Dar es Salaam",
+    "Lenovo ThinkPad Tanzania",
+    // Additional Equipment Keywords (SEO)
     "laptop supplier Tanzania",
-    "computer supplier Dar es Salaam",
-    // Smartphones
-    "smartphones Tanzania",
-    "mobile phones Dar es Salaam",
-    "iPhone Tanzania",
-    "Samsung phones Dar es Salaam",
-    // Storage & Components
+    "desktop computers Dar es Salaam",
     "SSD Tanzania",
-    "solid state drive Dar es Salaam",
-    "hard drives Tanzania",
-    "RAM memory Tanzania",
-    "computer components Dar es Salaam",
-    // Peripherals
-    "computer mouse Tanzania",
-    "keyboard Dar es Salaam",
-    "monitors Tanzania",
-    "printers Dar es Salaam",
-    "webcam Tanzania",
     "computer accessories Dar es Salaam",
-    "wireless mouse Tanzania",
-    "gaming mouse Dar es Salaam",
-    // Networking
-    "TP-Link router Tanzania",
-    "WiFi router Dar es Salaam",
-    "network switch Tanzania",
-    "UniFi equipment Dar es Salaam",
-    // Services
-    "IT equipment supplier Tanzania",
-    "computer repair Dar es Salaam",
-    "IT support Tanzania",
-    "network installation Dar es Salaam",
-    "M-Pesa integration Tanzania"
+    "smartphones Tanzania",
+    "computer mouse Tanzania",
+    "monitors Dar es Salaam",
+    "printers Tanzania",
+    "IT equipment supplier Dar es Salaam",
+    "computer components Tanzania",
+    "IT support Dar es Salaam",
+    "network installation Tanzania"
   ]
 }
 
@@ -105,7 +97,7 @@ export const organizationSchema = {
       height: 630
     }
   ],
-  description: "Leading computer and laptop supplier in Tanzania. Buy laptops, desktop computers, smartphones, SSDs, computer peripherals, and IT equipment in Dar es Salaam. Authorized dealer for Dell, HP, Lenovo, Apple MacBook. Gaming laptops, business computers, computer accessories, networking equipment.",
+  description: "Leading technology solutions provider in Tanzania. Custom software development, AI integration, M-Pesa payment systems, IoT solutions, cloud infrastructure, digital transformation, and enterprise IT equipment. Specialized in TP-Link Omada & UniFi network solutions for hotels and businesses.",
   telephone: "+255653520829",
   email: "helpdesk@neuraltale.com",
   address: {
@@ -162,7 +154,7 @@ export const websiteSchema = {
   "@id": "https://neuraltale.com/#website",
   url: "https://neuraltale.com",
   name: "Neuraltale",
-  description: "Leading IT equipment supplier and technology solutions provider in Tanzania",
+  description: "Leading technology solutions provider in Tanzania offering custom software development, AI integration, M-Pesa payment systems, and enterprise IT infrastructure",
   publisher: {
     "@id": "https://neuraltale.com/#organization"
   },
@@ -594,8 +586,8 @@ export const productCatalogSchema = {
 export const storeSchema = {
   "@context": "https://schema.org",
   "@type": "Store",
-  "name": "Neuraltale Computer & IT Equipment Store",
-  "description": "Computer and laptop store in Dar es Salaam Tanzania. Buy laptops, desktop computers, smartphones, SSDs, computer accessories, peripherals, networking equipment",
+  "name": "Neuraltale Technology Solutions & Enterprise IT Provider",
+  "description": "Technology solutions provider in Dar es Salaam Tanzania. Custom software development, AI integration, M-Pesa payment systems, IoT solutions, cloud infrastructure, and enterprise IT equipment for businesses",
   "image": "https://neuraltale.com/og-image.jpg",
   "url": "https://neuraltale.com",
   "telephone": "+255653520829",

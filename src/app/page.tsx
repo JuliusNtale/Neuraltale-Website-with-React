@@ -12,10 +12,10 @@ const Hero = dynamic(() => import('@/components/sections/Hero'), {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       <div className="relative z-20 text-center px-4 max-w-6xl mx-auto">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-          IT Equipment Supplier Tanzania
+          Technology Solutions Provider Tanzania
         </h1>
         <p className="text-xl md:text-2xl text-gray-300 mb-8">
-          TP-Link Omada • UniFi Networks • M-Pesa Integration
+          Custom Software • AI Integration • M-Pesa Systems • Enterprise IT
         </p>
       </div>
     </section>
@@ -55,93 +55,50 @@ const LocationMap = dynamic(() => import('@/components/sections/LocationMap'), {
 })
 
 export const metadata: Metadata = {
-  title: 'Buy Laptops, Computers & Smartphones Tanzania | Computer Shop Dar es Salaam | Neuraltale',
-  description: 'Best computer and laptop shop in Dar es Salaam Tanzania. Buy Dell, HP, Lenovo, Apple MacBook laptops, desktop computers, gaming PCs, smartphones, SSDs, computer mouse, keyboards, monitors, printers. IT equipment supplier with best prices. Free delivery Dar es Salaam. TP-Link routers, UniFi networks, network switches, computer accessories, peripherals.',
+  title: 'Technology Solutions & Enterprise IT Provider Tanzania | Neuraltale',
+  description: 'Leading technology solutions provider in Tanzania. Custom software development, AI integration, M-Pesa payment systems, IoT solutions, cloud infrastructure, and digital transformation services. Enterprise IT infrastructure with Dell, HP, Lenovo equipment. TP-Link Omada & UniFi network solutions for hotels and businesses in Dar es Salaam.',
   keywords: [
-    // Primary Computer Keywords
-    'buy laptops Tanzania',
-    'laptop shop Dar es Salaam',
-    'computer store Tanzania',
-    'computer shop Dar es Salaam',
-    'buy computers Tanzania',
-    'laptop supplier Dar es Salaam',
+    // Technology Solutions (Primary)
+    'technology solutions Tanzania',
+    'software development Dar es Salaam',
+    'custom software Tanzania',
+    'AI integration Dar es Salaam',
+    'M-Pesa integration Tanzania',
+    'IoT solutions Dar es Salaam',
+    'cloud solutions Tanzania',
+    'digital transformation Dar es Salaam',
+    'enterprise IT Tanzania',
+    'business automation Tanzania',
+    'tech consulting Dar es Salaam',
+    // Network Solutions
+    'network infrastructure Tanzania',
+    'TP-Link Omada Tanzania',
+    'UniFi network Dar es Salaam',
+    'hotel WiFi solutions Tanzania',
+    'enterprise networking Dar es Salaam',
+    'network security Tanzania',
+    'WiFi installation Dar es Salaam',
+    // Enterprise Equipment (Supporting)
+    'enterprise laptops Tanzania',
+    'business computers Dar es Salaam',
+    'workstation computers Tanzania',
+    'Dell enterprise solutions Tanzania',
+    'HP business laptops Dar es Salaam',
+    'Lenovo ThinkPad Tanzania',
+    'Lenovo ThinkPad Tanzania',
+    'Apple MacBook Pro Tanzania',
+    'IT equipment supplier Dar es Salaam',
+    // Additional Equipment Keywords (SEO Support)
     'desktop computers Tanzania',
-    'gaming laptops Dar es Salaam',
     'business laptops Tanzania',
-    // Laptop Brands
-    'Dell laptops Tanzania',
-    'HP laptops Dar es Salaam',
-    'Lenovo laptops Tanzania',
-    'Apple MacBook Tanzania',
-    'Asus laptops Dar es Salaam',
-    'Acer laptops Tanzania',
-    'gaming laptop Tanzania',
-    'MacBook Pro Tanzania',
-    'MacBook Air Dar es Salaam',
-    // Computers & Desktop
-    'desktop computer Tanzania',
-    'gaming PC Dar es Salaam',
-    'all-in-one computer Tanzania',
-    'workstation computer Dar es Salaam',
-    'Dell desktop Tanzania',
-    'HP desktop Dar es Salaam',
-    // Smartphones
-    'buy smartphones Tanzania',
-    'mobile phones Dar es Salaam',
-    'iPhone Tanzania',
-    'Samsung phones Dar es Salaam',
-    'Android phones Tanzania',
-    'smartphone store Dar es Salaam',
-    // Storage & Memory
+    'laptop supplier Dar es Salaam',
     'SSD Tanzania',
-    'buy SSD Dar es Salaam',
-    'solid state drive Tanzania',
-    'hard drive Dar es Salaam',
-    'external hard drive Tanzania',
-    'RAM memory Dar es Salaam',
-    '1TB SSD Tanzania',
-    '2TB hard drive Dar es Salaam',
-    // Peripherals
+    'computer accessories Dar es Salaam',
+    'smartphones Tanzania',
     'computer mouse Tanzania',
-    'keyboard Dar es Salaam',
-    'wireless mouse Tanzania',
-    'gaming mouse Dar es Salaam',
-    'mechanical keyboard Tanzania',
-    'USB mouse Dar es Salaam',
-    // Monitors & Displays
-    'computer monitor Tanzania',
-    'LED monitor Dar es Salaam',
-    'gaming monitor Tanzania',
-    '24 inch monitor Dar es Salaam',
-    'curved monitor Tanzania',
-    // Printers & Scanners
-    'printer Tanzania',
-    'HP printer Dar es Salaam',
-    'Canon printer Tanzania',
-    'Epson printer Dar es Salaam',
-    'laser printer Tanzania',
-    'inkjet printer Dar es Salaam',
-    'scanner Tanzania',
-    // Accessories
-    'computer accessories Tanzania',
-    'laptop accessories Dar es Salaam',
-    'USB drive Tanzania',
-    'flash drive Dar es Salaam',
-    'webcam Tanzania',
-    'headset Dar es Salaam',
-    'laptop bag Tanzania',
-    'laptop charger Dar es Salaam',
-    'laptop stand Tanzania',
-    'cooling pad Dar es Salaam',
-    'HDMI cable Tanzania',
-    'USB cable Dar es Salaam',
-    // Networking
-    'TP-Link router Tanzania',
-    'WiFi router Dar es Salaam',
-    'network switch Tanzania',
-    'UniFi equipment Dar es Salaam',
-    'ethernet cable Tanzania',
-    'network cable Dar es Salaam',
+    'monitors Dar es Salaam',
+    'printers Tanzania',
+    'RAM memory Tanzania',
     // Services
     'IT equipment supplier Tanzania',
     'computer supplier Dar es Salaam',
@@ -183,8 +140,8 @@ const homePageSchema = [
     "@type": "WebPage",
     "@id": "https://neuraltale.com/#webpage",
     "url": "https://neuraltale.com",
-    "name": "Buy Laptops, Computers & Smartphones Tanzania | Computer Shop Dar es Salaam",
-    "description": "Best computer and laptop shop in Dar es Salaam Tanzania. Buy Dell, HP, Lenovo, Apple MacBook laptops, desktop computers, gaming PCs, smartphones, SSDs, computer mouse, keyboards, monitors, printers. IT equipment supplier with best prices.",
+    "name": "Technology Solutions & Enterprise IT Provider Tanzania | Neuraltale",
+    "description": "Leading technology solutions provider in Tanzania. Custom software development, AI integration, M-Pesa payment systems, IoT solutions, cloud infrastructure, and enterprise IT equipment for businesses in Dar es Salaam.",
     "breadcrumb": {
       "@type": "BreadcrumbList", 
       "itemListElement": [
