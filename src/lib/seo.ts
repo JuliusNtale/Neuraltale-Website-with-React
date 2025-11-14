@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Neuraltale",
-  description: "Leading IT equipment supplier and technology solutions provider in Tanzania. Specializing in TP-Link Omada, UniFi networks, M-Pesa integration, and custom software development.",
+  description: "Leading computer and laptop supplier in Tanzania. Buy laptops, desktop computers, smartphones, SSDs, computer peripherals, and IT equipment in Dar es Salaam. Dell, HP, Lenovo, Apple MacBook. Best prices on gaming laptops, business computers, computer mouse, keyboards, monitors, printers. TP-Link routers, UniFi networks, network accessories.",
   url: "https://neuraltale.com",
   ogImage: "https://neuraltale.com/og-image.jpg",
   links: {
@@ -30,16 +30,50 @@ export const siteConfig = {
     }
   },
   keywords: [
+    // Computer & Laptop Keywords
+    "buy laptops Tanzania",
+    "laptop shop Dar es Salaam",
+    "computer store Tanzania",
+    "desktop computers Dar es Salaam",
+    "gaming laptops Tanzania",
+    "business laptops Dar es Salaam",
+    "Dell laptops Tanzania",
+    "HP laptops Dar es Salaam",
+    "Lenovo computers Tanzania",
+    "Apple MacBook Tanzania",
+    "laptop supplier Tanzania",
+    "computer supplier Dar es Salaam",
+    // Smartphones
+    "smartphones Tanzania",
+    "mobile phones Dar es Salaam",
+    "iPhone Tanzania",
+    "Samsung phones Dar es Salaam",
+    // Storage & Components
+    "SSD Tanzania",
+    "solid state drive Dar es Salaam",
+    "hard drives Tanzania",
+    "RAM memory Tanzania",
+    "computer components Dar es Salaam",
+    // Peripherals
+    "computer mouse Tanzania",
+    "keyboard Dar es Salaam",
+    "monitors Tanzania",
+    "printers Dar es Salaam",
+    "webcam Tanzania",
+    "computer accessories Dar es Salaam",
+    "wireless mouse Tanzania",
+    "gaming mouse Dar es Salaam",
+    // Networking
+    "TP-Link router Tanzania",
+    "WiFi router Dar es Salaam",
+    "network switch Tanzania",
+    "UniFi equipment Dar es Salaam",
+    // Services
     "IT equipment supplier Tanzania",
-    "TP-Link Omada setup Tanzania", 
-    "UniFi installation Dar es Salaam",
-    "Wi-Fi hotspot M-Pesa vouchers",
-    "M-Pesa integration developers",
-    "network infrastructure Tanzania",
-    "business WiFi solutions",
-    "hospitality technology Tanzania",
-    "SME IT support Tanzania",
-    "cybersecurity services Tanzania"
+    "computer repair Dar es Salaam",
+    "IT support Tanzania",
+    "network installation Dar es Salaam",
+    "M-Pesa integration Tanzania"
   ]
 }
 
@@ -71,7 +105,7 @@ export const organizationSchema = {
       height: 630
     }
   ],
-  description: "Leading IT equipment supplier and technology solutions provider in Tanzania specializing in enterprise networking, M-Pesa integration, and custom software development.",
+  description: "Leading computer and laptop supplier in Tanzania. Buy laptops, desktop computers, smartphones, SSDs, computer peripherals, and IT equipment in Dar es Salaam. Authorized dealer for Dell, HP, Lenovo, Apple MacBook. Gaming laptops, business computers, computer accessories, networking equipment.",
   telephone: "+255653520829",
   email: "helpdesk@neuraltale.com",
   address: {
@@ -383,4 +417,315 @@ export const reviewSchema = {
       "datePublished": "2024-09-10"
     }
   ]
+}
+
+// Product Catalog Schema for Computer Equipment
+export const productCatalogSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Computer Equipment and IT Products",
+  "description": "Laptops, desktop computers, smartphones, SSDs, computer peripherals and IT equipment available in Tanzania",
+  "numberOfItems": 8,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Product",
+        "name": "Laptops - Dell, HP, Lenovo, Apple MacBook",
+        "description": "Business laptops, gaming laptops, student laptops. Dell Latitude, HP EliteBook, Lenovo ThinkPad, MacBook Pro, MacBook Air available in Tanzania",
+        "category": "Computers/Laptops",
+        "brand": ["Dell", "HP", "Lenovo", "Apple", "Asus", "Acer"],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "TZS",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Neuraltale"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Product",
+        "name": "Desktop Computers & Gaming PCs",
+        "description": "Desktop computers, all-in-one PCs, gaming computers, workstations. Dell Optiplex, HP ProDesk, custom gaming builds",
+        "category": "Computers/Desktop",
+        "brand": ["Dell", "HP", "Lenovo", "Custom Built"],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "TZS",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Neuraltale"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Product",
+        "name": "Smartphones - iPhone, Samsung, Android",
+        "description": "Latest smartphones, mobile phones. Apple iPhone, Samsung Galaxy, Android phones available in Dar es Salaam",
+        "category": "Electronics/Smartphones",
+        "brand": ["Apple", "Samsung", "Huawei", "Xiaomi", "Oppo"],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "TZS",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Neuraltale"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Product",
+        "name": "SSD & Hard Drives - Storage Solutions",
+        "description": "Solid state drives (SSD), hard disk drives (HDD), external storage. 256GB, 512GB, 1TB, 2TB options. Samsung, Kingston, WD, Seagate",
+        "category": "Computer Components/Storage",
+        "brand": ["Samsung", "Kingston", "Western Digital", "Seagate", "Crucial"],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "TZS",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Neuraltale"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Product",
+        "name": "Computer Mouse & Keyboards",
+        "description": "Wireless mouse, gaming mouse, mechanical keyboards, USB keyboards. Logitech, Razer, Corsair, HP, Dell peripherals",
+        "category": "Computer Accessories/Input Devices",
+        "brand": ["Logitech", "Razer", "Corsair", "HP", "Dell"],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "TZS",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Neuraltale"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Product",
+        "name": "Computer Monitors & Displays",
+        "description": "LED monitors, gaming monitors, curved monitors. 21.5\", 24\", 27\", 32\" screens. Dell, HP, LG, Samsung, Asus monitors",
+        "category": "Computer Accessories/Displays",
+        "brand": ["Dell", "HP", "LG", "Samsung", "Asus"],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "TZS",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Neuraltale"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Product",
+        "name": "Printers & Scanners",
+        "description": "Laser printers, inkjet printers, multifunction printers, scanners. HP, Canon, Epson, Brother printing solutions",
+        "category": "Office Equipment/Printers",
+        "brand": ["HP", "Canon", "Epson", "Brother"],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "TZS",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Neuraltale"
+          }
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Product",
+        "name": "Networking Equipment - Routers, Switches",
+        "description": "TP-Link routers, UniFi access points, network switches, ethernet cables, WiFi equipment. Enterprise and home networking solutions",
+        "category": "Networking Equipment",
+        "brand": ["TP-Link", "Ubiquiti", "Cisco", "D-Link", "Netgear"],
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "TZS",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Neuraltale"
+          }
+        }
+      }
+    }
+  ]
+}
+
+// Store Schema for Local Business SEO
+export const storeSchema = {
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Neuraltale Computer & IT Equipment Store",
+  "description": "Computer and laptop store in Dar es Salaam Tanzania. Buy laptops, desktop computers, smartphones, SSDs, computer accessories, peripherals, networking equipment",
+  "image": "https://neuraltale.com/og-image.jpg",
+  "url": "https://neuraltale.com",
+  "telephone": "+255653520829",
+  "priceRange": "TZS",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Msimbazi Street",
+    "addressLocality": "Dar es Salaam",
+    "addressCountry": "TZ",
+    "postalCode": "11101"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "-6.7924",
+    "longitude": "39.2083"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ],
+  "paymentAccepted": "Cash, M-Pesa, Bank Transfer, Credit Card",
+  "currenciesAccepted": "TZS, USD",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Computer Equipment & IT Products",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Laptops & Computers",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Dell Laptops",
+              "category": "Laptops"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "HP Laptops",
+              "category": "Laptops"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Lenovo Laptops",
+              "category": "Laptops"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Apple MacBook",
+              "category": "Laptops"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Computer Accessories",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Computer Mouse",
+              "category": "Peripherals"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Keyboards",
+              "category": "Peripherals"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Monitors",
+              "category": "Displays"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Storage Solutions",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "SSD Drives",
+              "category": "Storage"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Hard Drives",
+              "category": "Storage"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Dar es Salaam"
+  }
 }

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import StructuredData from '@/components/SEO/StructuredData'
 import ResourceHints from '@/components/utils/ResourceHints'
-import { organizationSchema, localBusinessSchema, serviceSchemas, logoSchema, websiteSchema } from '@/lib/seo'
+import { organizationSchema, localBusinessSchema, serviceSchemas, logoSchema, websiteSchema, productCatalogSchema, storeSchema } from '@/lib/seo'
 
 // Critical above-the-fold component - load immediately with high priority
 // Hero is static content, no need for client-side JS initially
@@ -55,23 +55,104 @@ const LocationMap = dynamic(() => import('@/components/sections/LocationMap'), {
 })
 
 export const metadata: Metadata = {
-  title: 'IT Equipment Supplier Dar es Salaam | TP-Link Omada Setup Tanzania | Neuraltale',
-  description: 'Leading IT equipment supplier in Dar es Salaam specializing in TP-Link Omada setup, UniFi networks, Wi-Fi hotspot with M-Pesa vouchers, and M-Pesa integration developers. Professional network infrastructure for SMEs, hotels, schools, and retail businesses across Tanzania.',
+  title: 'Buy Laptops, Computers & Smartphones Tanzania | Computer Shop Dar es Salaam | Neuraltale',
+  description: 'Best computer and laptop shop in Dar es Salaam Tanzania. Buy Dell, HP, Lenovo, Apple MacBook laptops, desktop computers, gaming PCs, smartphones, SSDs, computer mouse, keyboards, monitors, printers. IT equipment supplier with best prices. Free delivery Dar es Salaam. TP-Link routers, UniFi networks, network switches, computer accessories, peripherals.',
   keywords: [
-    'IT equipment supplier Dar es Salaam',
-    'TP-Link Omada setup Tanzania', 
-    'Wi-Fi hotspot with M-Pesa vouchers',
-    'M-Pesa integration developers',
-    'UniFi installation Tanzania',
-    'network infrastructure Dar es Salaam',
-    'business WiFi solutions Tanzania',
-    'enterprise networking equipment',
-    'captive portal M-Pesa vouchers',
-    'hospitality WiFi Tanzania'
+    // Primary Computer Keywords
+    'buy laptops Tanzania',
+    'laptop shop Dar es Salaam',
+    'computer store Tanzania',
+    'computer shop Dar es Salaam',
+    'buy computers Tanzania',
+    'laptop supplier Dar es Salaam',
+    'desktop computers Tanzania',
+    'gaming laptops Dar es Salaam',
+    'business laptops Tanzania',
+    // Laptop Brands
+    'Dell laptops Tanzania',
+    'HP laptops Dar es Salaam',
+    'Lenovo laptops Tanzania',
+    'Apple MacBook Tanzania',
+    'Asus laptops Dar es Salaam',
+    'Acer laptops Tanzania',
+    'gaming laptop Tanzania',
+    'MacBook Pro Tanzania',
+    'MacBook Air Dar es Salaam',
+    // Computers & Desktop
+    'desktop computer Tanzania',
+    'gaming PC Dar es Salaam',
+    'all-in-one computer Tanzania',
+    'workstation computer Dar es Salaam',
+    'Dell desktop Tanzania',
+    'HP desktop Dar es Salaam',
+    // Smartphones
+    'buy smartphones Tanzania',
+    'mobile phones Dar es Salaam',
+    'iPhone Tanzania',
+    'Samsung phones Dar es Salaam',
+    'Android phones Tanzania',
+    'smartphone store Dar es Salaam',
+    // Storage & Memory
+    'SSD Tanzania',
+    'buy SSD Dar es Salaam',
+    'solid state drive Tanzania',
+    'hard drive Dar es Salaam',
+    'external hard drive Tanzania',
+    'RAM memory Dar es Salaam',
+    '1TB SSD Tanzania',
+    '2TB hard drive Dar es Salaam',
+    // Peripherals
+    'computer mouse Tanzania',
+    'keyboard Dar es Salaam',
+    'wireless mouse Tanzania',
+    'gaming mouse Dar es Salaam',
+    'mechanical keyboard Tanzania',
+    'USB mouse Dar es Salaam',
+    // Monitors & Displays
+    'computer monitor Tanzania',
+    'LED monitor Dar es Salaam',
+    'gaming monitor Tanzania',
+    '24 inch monitor Dar es Salaam',
+    'curved monitor Tanzania',
+    // Printers & Scanners
+    'printer Tanzania',
+    'HP printer Dar es Salaam',
+    'Canon printer Tanzania',
+    'Epson printer Dar es Salaam',
+    'laser printer Tanzania',
+    'inkjet printer Dar es Salaam',
+    'scanner Tanzania',
+    // Accessories
+    'computer accessories Tanzania',
+    'laptop accessories Dar es Salaam',
+    'USB drive Tanzania',
+    'flash drive Dar es Salaam',
+    'webcam Tanzania',
+    'headset Dar es Salaam',
+    'laptop bag Tanzania',
+    'laptop charger Dar es Salaam',
+    'laptop stand Tanzania',
+    'cooling pad Dar es Salaam',
+    'HDMI cable Tanzania',
+    'USB cable Dar es Salaam',
+    // Networking
+    'TP-Link router Tanzania',
+    'WiFi router Dar es Salaam',
+    'network switch Tanzania',
+    'UniFi equipment Dar es Salaam',
+    'ethernet cable Tanzania',
+    'network cable Dar es Salaam',
+    // Services
+    'IT equipment supplier Tanzania',
+    'computer supplier Dar es Salaam',
+    'laptop repair Tanzania',
+    'computer repair Dar es Salaam',
+    'IT support Tanzania',
+    'network installation Dar es Salaam'
   ],
   openGraph: {
-    title: 'IT Equipment Supplier Dar es Salaam | TP-Link Omada Setup Tanzania',
-    description: 'Professional TP-Link Omada setup, UniFi networks, Wi-Fi hotspot with M-Pesa vouchers. Leading IT equipment supplier serving SMEs, hotels, schools across Tanzania.',
+    title: 'Buy Laptops, Computers, Smartphones Tanzania | Best Computer Shop Dar es Salaam',
+    description: 'Shop Dell, HP, Lenovo, Apple MacBook laptops, desktop computers, gaming PCs, smartphones, SSDs, computer mouse, keyboards, monitors, printers in Tanzania. Best IT equipment supplier Dar es Salaam with competitive prices and fast delivery. Computer accessories, peripherals, networking equipment.',
     url: 'https://neuraltale.com',
     type: 'website',
     images: [
@@ -85,14 +166,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IT Equipment Supplier Dar es Salaam | TP-Link Omada Setup Tanzania',
-    description: 'Professional TP-Link Omada setup, UniFi networks, Wi-Fi hotspot with M-Pesa vouchers in Tanzania.'
+    title: 'Buy Laptops, Computers, Smartphones Tanzania | Computer Shop Dar es Salaam',
+    description: 'Shop Dell, HP, Lenovo, Apple MacBook laptops, desktop computers, gaming PCs, smartphones, SSDs, computer accessories in Tanzania. Best prices Dar es Salaam.'
   }
 }
 
 const homePageSchema = [
   organizationSchema,
   localBusinessSchema,
+  productCatalogSchema,
+  storeSchema,
   serviceSchemas.networkInstallation,
   serviceSchemas.mpesaIntegration,
   {
@@ -100,8 +183,8 @@ const homePageSchema = [
     "@type": "WebPage",
     "@id": "https://neuraltale.com/#webpage",
     "url": "https://neuraltale.com",
-    "name": "IT Equipment Supplier Dar es Salaam | TP-Link Omada Setup Tanzania",
-    "description": "Leading IT equipment supplier in Dar es Salaam specializing in TP-Link Omada setup, UniFi networks, Wi-Fi hotspot with M-Pesa vouchers, and M-Pesa integration developers.",
+    "name": "Buy Laptops, Computers & Smartphones Tanzania | Computer Shop Dar es Salaam",
+    "description": "Best computer and laptop shop in Dar es Salaam Tanzania. Buy Dell, HP, Lenovo, Apple MacBook laptops, desktop computers, gaming PCs, smartphones, SSDs, computer mouse, keyboards, monitors, printers. IT equipment supplier with best prices.",
     "breadcrumb": {
       "@type": "BreadcrumbList", 
       "itemListElement": [

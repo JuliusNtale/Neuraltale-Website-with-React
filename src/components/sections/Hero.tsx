@@ -62,11 +62,11 @@ export default function Hero() {
 
           {/* Scroll indicator */}
           <div 
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer animate-bounce"
+            className=" bottom-1 right-1/2 cursor-pointer animate-bounce"
             onClick={scrollToServices}
           >
             <div className="flex flex-col items-center text-gray-300 hover:text-blue-400 transition-colors">
-              <span className="text-sm mb-2">Scroll to explore</span>
+              <span className="text-sm mb-1">Scroll to explore</span>
               <ChevronDown className="w-6 h-6" />
             </div>
           </div>
